@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ael-mank <ael-mank@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 11:02:22 by ael-mank          #+#    #+#             */
-/*   Updated: 2023/12/01 10:26:25 by ael-mank         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
@@ -39,7 +29,7 @@ int		ft_checktype(va_list args, const char type);
 char	*ft_itoa(int n);
 int		int_len(long nbr);
 char	*malzero(int len);
-size_t	ft_putnbr(int n);
+int		ft_putnbr(int n);
 void	ft_bzero(void *ptr, size_t n);
 
 

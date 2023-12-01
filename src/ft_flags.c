@@ -1,14 +1,4 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   ft_flags.c                                         :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: ael-mank <ael-mank@student.42.fr>          +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2023/12/01 09:45:57 by ael-mank          #+#    #+#             */
-// /*   Updated: 2023/12/01 09:58:31 by ael-mank         ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+
 
 #include "../include/libftprintf.h"
 
@@ -19,7 +9,7 @@ int	ft_isflag(const char c)
 	else
 		return (0);
 }
-int	ft_setflags(flags,const char *str)
+int	ft_setflags(t_flags *flags, const char *str)
 {
 	int i
 
