@@ -34,16 +34,6 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-    int num = 42;
-    char *str = "Hello, World!";
-    double dbl = 3.14159;
-
-    // Test ft_printf with various flags
-    ft_printf("Number with zero padding: %10d\n", num);
-    ft_printf("Number with left justification: %-10d\n", num);
-    ft_printf("String with precision: %.5s\n", str);
-    ft_printf("Floating point number with precision: %.2f\n", dbl);
-    ft_printf("Hexadecimal representation: %#x\n", num);
-
+    ft_printf("%X\n", 54552);
     return 0;
 }

@@ -26,7 +26,7 @@ char	*create_array(unsigned int nb)
 	return (array);
 }
 
-char	*ft_puthexa(unsigned int nbr)
+char	*ft_puthexa(unsigned int nbr, char c)
 {
 	int			n;
 	char		*array;
@@ -39,6 +39,8 @@ char	*ft_puthexa(unsigned int nbr)
 		nbr /= 16;
 		n++;
 	}
+	if (c == 'X')
+		ft_toupper(array);
 	while (n >= 0)
 	{
 		ft_printchar(array[n]);
@@ -53,7 +55,8 @@ int ft_printhexa(unsigned int nbr, char c)
 	char	*hexa;
 
 	if (c == 'X')
-		ft_toupper(ft_puthexa(nbr));
-	ft_puthexa(nbr);
+		ft_puthexa(nbr, c);
+	else
+		ft_puthexa(nbr, c);
 	return (get_length(nbr));
 }

@@ -33,13 +33,13 @@ int		ft_putnbr(int n);
 void	ft_bzero(void *ptr, size_t n);
 int		get_length(unsigned int nbr);
 char	*create_array(unsigned int nb);
-char	*ft_puthexa(unsigned int nbr);
-int 	ft_printhexa(unsigned int nbr);
+char	*ft_puthexa(unsigned int nbr, char c);
+int 	ft_printhexa(unsigned int nbr, char c);
 t_flags	*create_struct(void);
 int		ft_setflags(t_flags *flags, const char *str);
 void	ft_toupper(char *str);
-int	int_len_u(unsigned int nbr);
+int		int_len_u(unsigned int nbr);
 void	ft_putunsigned(unsigned int nbr);
-int	ft_printunsigned(unsigned int nbr);
+int		ft_printunsigned(unsigned int nbr);
 
 #endif //
