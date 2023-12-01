@@ -21,19 +21,18 @@ int	ft_printf(const char *str, ...)
 		{
 			ft_bzero(flags, sizeof(t_flags));
 			format = ft_setflags(flags, str + i + 1);
-			len += ft_checktype(args, str[i + 1 + format], flags);
+			len += ft_checktype(args, str[i + 1 + format]);
 			i += format + 1;
 		}
 		else
 			len += ft_printchar(str[i]);
 	}
 	va_end(args);
-	//free (flags)
+	free(flags);
 	return (len);
 }
 
-int main(void)
-{
-    ft_printf("%X\n", 54552);
-    return 0;
-}
+// int main(void)
+// {
+//    ft_printf("'%u'\n", 42);
+// }

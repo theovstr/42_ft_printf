@@ -12,7 +12,7 @@ AR			= ar rcs
 
 # Sources
 
-SRC_FILES	= ft_printf ft_printchars ft_printptr minilibft ft_checktype ft_flags ft_itoa ft_printhexa ft_printnb
+SRC_FILES	= ft_printf ft_printchars ft_printptr minilibft ft_checktype ft_flags ft_itoa ft_printhexa ft_printnb ft_printunsigned
 
 
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

@@ -9,9 +9,10 @@ t_flags	*create_struct(void)
 	elem = malloc(sizeof(t_flags));
 	if (!elem)
 		return (NULL);
+	return(elem);
 }
 
-int	ft_checktype(va_list args, const char type, t_flags *flags)
+int	ft_checktype(va_list args, const char type)
 {
 	if (type == 'c')
 		return (ft_printchar(va_arg(args, int)));
