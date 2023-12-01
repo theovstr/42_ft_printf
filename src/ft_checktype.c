@@ -21,7 +21,13 @@ int	ft_checktype(va_list args, const char type, t_flags *flags)
 		return (ft_printptr(va_arg(args, unsigned long long)));
 	else if ((type == 'd') || (type == 'i'))
 		return (ft_putnbr(va_arg(args, int)));
+	else if (type == 'x')
+		return(ft_printhexa(va_arg(args, unsigned int), 'x'));
+	else if (type == 'X')
+		return(ft_printhexa(va_arg(args, unsigned int), 'X'));
 	else if (type == 'u')
+		return(ft_printunsigned(va_arg(args, unsigned int)));
+	else if (type == '%')
 		return (ft_printchar('%'));
 	return (1);
 }

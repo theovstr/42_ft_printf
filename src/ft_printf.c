@@ -21,7 +21,7 @@ int	ft_printf(const char *str, ...)
 		{
 			ft_bzero(flags, sizeof(t_flags));
 			format = ft_setflags(flags, str + i + 1);
-			len += ft_checktype(args, str[i + 2], flags);
+			len += ft_checktype(args, str[i + 1 + format], flags);
 			i += format + 1;
 		}
 		else
@@ -34,6 +34,16 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("Hello %-s\n", "World !!");
-	return (0);
+    int num = 42;
+    char *str = "Hello, World!";
+    double dbl = 3.14159;
+
+    // Test ft_printf with various flags
+    ft_printf("Number with zero padding: %10d\n", num);
+    ft_printf("Number with left justification: %-10d\n", num);
+    ft_printf("String with precision: %.5s\n", str);
+    ft_printf("Floating point number with precision: %.2f\n", dbl);
+    ft_printf("Hexadecimal representation: %#x\n", num);
+
+    return 0;
 }
