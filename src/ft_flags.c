@@ -13,7 +13,7 @@ int	ft_setflags(t_flags *flags, const char *str)
 {
 	int i;
 
-	i = 0
+	i = 0;
 	while (ft_isflag(str[i]))
 	{
 		if (str[i] == '-')
@@ -28,4 +28,5 @@ int	ft_setflags(t_flags *flags, const char *str)
 			flags->zero = 1;
 		i++;
 	}
+	return (i);
 }

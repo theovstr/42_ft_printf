@@ -2,20 +2,12 @@
 
 #include "../include/libftprintf.h"
 
-t_flags	*create_struct(void)
-{
-	t_flags *elem;
-
-	elem = malloc(sizeof(t_flags));
-	if (!elem)
-		return (NULL);
-}
-
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
 	int		len;
+	int 	format;
 	t_flags *flags;
 	
 	i = -1;
@@ -24,12 +16,13 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[++i])
 	{
+		format = 0;
 		if (str[i] == '%')
 		{
 			ft_bzero(flags, sizeof(t_flags));
-			ft_setflags(flags, str + i + 1);
-			len += ft_checktype(args, str[i + 1]);
-			i++;
+			format = ft_setflags(flags, str + i + 1);
+			len += ft_checktype(args, str[i + 2], flags);
+			i += format + 1;
 		}
 		else
 			len += ft_printchar(str[i]);
@@ -41,6 +34,6 @@ int	ft_printf(const char *str, ...)
 
 int main(void)
 {
-	ft_printf("Hello %s\n", "World !!");
+	ft_printf("Hello %-s\n", "World !!");
 	return (0);
 }

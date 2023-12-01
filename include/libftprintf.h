@@ -25,12 +25,13 @@ int		ft_printchar(char c);
 int		ft_printstr(char *str);
 int		ft_printptr(unsigned long long ptr);
 int		ft_strlen(char *str);
-int		ft_checktype(va_list args, const char type);
+int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n);
 int		int_len(long nbr);
 char	*malzero(int len);
 int		ft_putnbr(int n);
 void	ft_bzero(void *ptr, size_t n);
-
+t_flags	*create_struct(void);
+int	ft_setflags(t_flags *flags, const char *str);
 
 #endif

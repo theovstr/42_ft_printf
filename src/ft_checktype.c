@@ -2,8 +2,16 @@
 
 #include "../include/libftprintf.h"
 
-//TODO: add 
-int	ft_checktype(va_list args, const char type)
+t_flags	*create_struct(void)
+{
+	t_flags *elem;
+
+	elem = malloc(sizeof(t_flags));
+	if (!elem)
+		return (NULL);
+}
+
+int	ft_checktype(va_list args, const char type, t_flags *flags)
 {
 	if (type == 'c')
 		return (ft_printchar(va_arg(args, int)));
