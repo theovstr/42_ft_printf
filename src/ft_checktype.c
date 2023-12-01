@@ -2,7 +2,7 @@
 
 #include "../include/libftprintf.h"
 
-//TODO: add xX
+//TODO: add 
 int	ft_checktype(va_list args, const char type)
 {
 	if (type == 'c')
