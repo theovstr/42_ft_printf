@@ -25,7 +25,7 @@ int		ft_printchar(char c);
 int		ft_printstr(char *str);
 int		ft_printptr(unsigned long long ptr);
 int		ft_strlen(char *str);
-int		ft_checktype(va_list args, const char type);
+int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n);
 int		int_len(long nbr);
 char	*malzero(int len);
@@ -35,5 +35,7 @@ int		get_length(unsigned int nbr)
 char	*create_array(unsigned int nb)
 void	ft_puthexa(unsigned int nbr)
 int 	ft_printhexa(unsigned int nbr)
+t_flags	*create_struct(void);
+int	ft_setflags(t_flags *flags, const char *str);
 
 #endif
