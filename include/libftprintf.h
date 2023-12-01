@@ -31,6 +31,9 @@ int		int_len(long nbr);
 char	*malzero(int len);
 int		ft_putnbr(int n);
 void	ft_bzero(void *ptr, size_t n);
-
+int		get_length(unsigned int nbr)
+char	*create_array(unsigned int nb)
+void	ft_puthexa(unsigned int nbr)
+int 	ft_printhexa(unsigned int nbr)
 
 #endif
