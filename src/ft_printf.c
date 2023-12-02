@@ -16,12 +16,10 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[++i])
 	{
-		format = 0;
 		if (str[i] == '%')
 		{
-			ft_bzero(flags, sizeof(t_flags));
-			format = ft_setflags(flags, str + i + 1);
-			len += ft_checktype(args, str[i + 1 + format]);
+			format = ft_re_setflags(flags, &str[i + 1]);
+			len += ft_checktype(args, str[i + 1 + format], flags);
 			i += format + 1;
 		}
 		else
@@ -32,7 +30,18 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-// int main(void)
-// {
-//    ft_printf("'%u'\n", 42);
-// }
+void ft_printflags(t_flags *flags)
+{
+	printf("minus: %d\n", flags->minus);
+	printf("plus: %d\n", flags->plus);
+	printf("space: %d\n", flags->space);
+	printf("hash: %d\n", flags->hash);
+	printf("zero: %d\n", flags->zero);
+	printf("width: %d\n", flags->width);
+}
+
+int main(void)
+{
+	ft_printf("%#4x\n", 42);
+
+}

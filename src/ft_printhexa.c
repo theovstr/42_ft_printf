@@ -63,16 +63,26 @@ void	ft_puthexa(unsigned int nbr, char c)
 	free(array); // freed
 }
 
-int	ft_printhexa(unsigned int nbr, char c)
+int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {
+	int len;
+
+	len = get_length(nbr);
+	if (flags->hash == 1 && c == 'x')
+	{
+		ft_printstr("0x");
+		len += 2;
+	}
+	else if (flags->hash == 1 && c == 'X')
+	{
+		ft_printstr("0X");
+		len += 2;
+	}
 	if (nbr == 0)
 	{
 		ft_printchar('0');
 		return (1);
 	}
-	if (c == 'X')
-		ft_puthexa(nbr, c);
-	else
-		ft_puthexa(nbr, c);
-	return (get_length(nbr));
+	ft_puthexa(nbr, c);
+	return (len);
 }
