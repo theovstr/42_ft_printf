@@ -4,11 +4,11 @@
 
 int	ft_putnbr(int n)
 {
-	char *nbr;
+	char	*nbr;
 
 	nbr = ft_itoa(n);
 	ft_printstr(nbr);
-	free (nbr);
+	free(nbr);
 	return (int_len(n));
 }
 // corrected and freed

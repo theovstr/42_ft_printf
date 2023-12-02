@@ -40,8 +40,8 @@ char	*create_array(unsigned int nb)
 
 void	ft_puthexa(unsigned int nbr, char c)
 {
-	int			n;
-	char		*array;
+	int		n;
+	char	*array;
 
 	n = 0;
 	array = create_hex_array(nbr);
@@ -63,13 +63,12 @@ void	ft_puthexa(unsigned int nbr, char c)
 	free(array); // freed
 }
 
-
-int ft_printhexa(unsigned int nbr, char c)
+int	ft_printhexa(unsigned int nbr, char c)
 {
 	if (nbr == 0)
 	{
 		ft_printchar('0');
-		return (1);	
+		return (1);
 	}
 	if (c == 'X')
 		ft_puthexa(nbr, c);

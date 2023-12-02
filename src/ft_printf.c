@@ -7,9 +7,9 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		i;
 	int		len;
-	int 	format;
-	t_flags *flags;
-	
+	int		format;
+	t_flags	*flags;
+
 	i = -1;
 	len = 0;
 	flags = create_struct();

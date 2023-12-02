@@ -9,9 +9,10 @@ int	ft_isflag(const char c)
 	else
 		return (0);
 }
+
 int	ft_setflags(t_flags *flags, const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_isflag(str[i]))
