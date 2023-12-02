@@ -25,3 +25,20 @@ void	ft_bzero(void *ptr, size_t n)
 		i++;
 	}
 }
+
+void	ft_toupper(char *str)
+{
+	while (*str)
+	{
+		if (*str >= 'a' && *str <= 'z')
+			*str -= 32;
+		str++;
+	}
+}
+
+int	ft_isdigit(int character)
+{
+	if (character >= '0' && character <= '9')
+		return (1);
+	return (0);
+}

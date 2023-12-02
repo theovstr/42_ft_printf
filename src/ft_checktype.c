@@ -2,7 +2,17 @@
 
 #include "../include/libftprintf.h"
 
-int	ft_checktype(va_list args, const char type)
+t_flags	*create_struct(void)
+{
+	t_flags	*elem;
+
+	elem = malloc(sizeof(t_flags));
+	if (!elem)
+		return (NULL);
+	return (elem);
+}
+
+int	ft_checktype(va_list args, const char type, t_flags *flags)
 {
 	if (type == 'c')
 		return (ft_printchar(va_arg(args, int)));
@@ -12,7 +22,13 @@ int	ft_checktype(va_list args, const char type)
 		return (ft_printptr(va_arg(args, unsigned long long)));
 	else if ((type == 'd') || (type == 'i'))
 		return (ft_putnbr(va_arg(args, int)));
+	else if (type == 'x')
+		return (ft_printhexa(va_arg(args, unsigned int), 'x', flags));
+	else if (type == 'X')
+		return (ft_printhexa(va_arg(args, unsigned int), 'X', flags));
 	else if (type == 'u')
+		return (ft_printunsigned(va_arg(args, unsigned int)));
+	else if (type == '%')
 		return (ft_printchar('%'));
 	return (1);
 }
