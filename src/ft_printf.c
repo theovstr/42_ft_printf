@@ -30,18 +30,7 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-void ft_printflags(t_flags *flags)
-{
-	printf("minus: %d\n", flags->minus);
-	printf("plus: %d\n", flags->plus);
-	printf("space: %d\n", flags->space);
-	printf("hash: %d\n", flags->hash);
-	printf("zero: %d\n", flags->zero);
-	printf("width: %d\n", flags->width);
-}
-
 int main(void)
 {
 	ft_printf("%#4x\n", 42);
-
 }
