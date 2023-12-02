@@ -20,7 +20,7 @@ char	*create_hex_array(unsigned int nb)
 	unsigned int	n;
 
 	n = get_length(nb);
-	array = malloc(sizeof(n) + 1);
+	array = malloc((n + 1) * sizeof(char));
 	if (!array)
 		return (NULL);
 	return (array);
@@ -32,7 +32,7 @@ char	*create_array(unsigned int nb)
 	unsigned int	n;
 
 	n = int_len(nb);
-	array = malloc(sizeof(n) + 1);
+	array = malloc((n + 1) * sizeof(char));
 	if (!array)
 		return (NULL);
 	return (array);
