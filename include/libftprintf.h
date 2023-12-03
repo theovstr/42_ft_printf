@@ -45,6 +45,5 @@ int		ft_printunsigned(unsigned int nbr);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
 void	integer_flag(int n, char c);
-void	integer_flag(int n, char c);
 
 #endif
