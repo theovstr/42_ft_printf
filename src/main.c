@@ -28,4 +28,16 @@ int main(void)
 	ft_printf("'(nill)' : '%   ++++++  p'\n", -0);
 
 	ft_printf("-----------end of test\n");
+	ft_printf("\n");
+	ft_printf("TEST FOR %%p \n");
+
+	ft_printf("'fffffffc' : '%x'\n", -4);
+	ft_printf("0X2d : '% ###X'\n", 45);
+	ft_printf("0 : '%x'\n", 0);
+	ft_printf("FFFFF79D : '%X'\n", -2147);
+	ft_printf("'0xc' : '%##x'\n", 12);
+	ft_printf("2Dd : '%XX'\n", 45);
+	ft_printf("'0XE3F' : '%#X'\n", 3647);
+
+	ft_printf("-----------end of test\n");
 }
