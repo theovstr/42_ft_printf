@@ -35,7 +35,7 @@ $(NAME): $(OBJ)
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "$(YELLOW)Compiling $<...$(NC)"
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c -fPIE $< -o $@
 
 clean:
 	@$(RM) -rf $(OBJ_DIR)
