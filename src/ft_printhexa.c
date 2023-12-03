@@ -68,14 +68,12 @@ int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 	int len;
 
 	len = get_length(nbr);
-	if (flags->hash == 1 && c == 'x')
+	if (flags->hash == 1)
 	{
-		ft_printstr("0x");
-		len += 2;
-	}
-	else if (flags->hash == 1 && c == 'X')
-	{
-		ft_printstr("0X");
+		if (c == 'x')
+			ft_printstr("0x");
+		else if (c == 'X')
+			ft_printstr("0x");
 		len += 2;
 	}
 	if (nbr == 0)
