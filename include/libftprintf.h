@@ -23,7 +23,7 @@ typedef struct s_flags
 int		ft_printf(const char *str, ...);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
-int		ft_printptr(unsigned long long ptr);
+int		ft_printptr(unsigned long long ptr, t_flags *flag);
 int		ft_strlen(char *str);
 int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n);
@@ -36,7 +36,7 @@ char	*create_array(unsigned int nb);
 void	ft_puthexa(unsigned int nbr, char c);
 int		ft_printhexa(unsigned int nbr, char c, t_flags *flags);
 t_flags	*create_struct(void);
-int	ft_setflags(t_flags *flags, const char *str);
+int		ft_setflags(t_flags *flags, const char *str);
 int		ft_setflags(t_flags *flags, const char *str);
 void	ft_toupper(char *str);
 int		int_len_u(unsigned int nbr);

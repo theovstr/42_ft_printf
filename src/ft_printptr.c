@@ -32,7 +32,8 @@ size_t	puthex(unsigned long long ptr)
 	return (lenhexptr(ptr));
 }
 
-int	ft_printptr(unsigned long long ptr)
+
+int	ft_printptr(unsigned long long ptr, t_flags *flag)
 {
 	if (!ptr)
 		return (write(1, "(nil)", 5));

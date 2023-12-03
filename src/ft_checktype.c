@@ -19,7 +19,7 @@ int	ft_checktype(va_list args, const char type, t_flags *flags)
 	else if (type == 's')
 		return (ft_printstr(va_arg(args, char *)));
 	else if (type == 'p')
-		return (ft_printptr(va_arg(args, unsigned long long)));
+		return (ft_printptr(va_arg(args, unsigned long long), flags));
 	else if ((type == 'd') || (type == 'i'))
 		return (ft_putnbr(va_arg(args, int), flags));
 	else if (type == 'x')
