@@ -37,5 +37,16 @@ int	ft_printptr(unsigned long long ptr, t_flags *flag)
 {
 	if (!ptr)
 		return (write(1, "(nil)", 5));
-	return (write(1, "0x", 2) + puthex(ptr));
+	if ((flag->plus == 1 && flag->space == 1) || flag->plus == 1)
+	{
+		ft_printchar('+');
+		return (write(1, "0x", 2) + puthex(ptr));
+	}
+	else if (flag->space == 1)
+	{
+		ft_printchar(' ');
+		return (write(1, "0x", 2) + puthex(ptr));
+	}
+	else
+		return (write(1, "0x", 2) + puthex(ptr));
 }
