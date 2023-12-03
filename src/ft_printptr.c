@@ -2,12 +2,12 @@
 
 #include "../include/libftprintf.h"
 
-size_t lenhexptr(unsigned long long ptr)
+size_t	lenhexptr(unsigned long long ptr)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while(ptr > 0)
+	while (ptr > 0)
 	{
 		ptr >>= 4;
 		i++;

@@ -14,46 +14,75 @@ int	get_length(unsigned int nbr)
 	return (i);
 }
 
-char	*create_array(unsigned int nb)
+char	*create_hex_array(unsigned int nb)
 {
 	char			*array;
 	unsigned int	n;
 
 	n = get_length(nb);
-	array = malloc(sizeof(n) * 1);
+	array = malloc((n + 1) * sizeof(char));
 	if (!array)
 		return (NULL);
 	return (array);
 }
 
-char	*ft_puthexa(unsigned int nbr)
+char	*create_array(unsigned int nb)
 {
-	int			n;
-	char		*array;
+	char			*array;
+	unsigned int	n;
+
+	n = int_len(nb);
+	array = malloc((n + 1) * sizeof(char));
+	if (!array)
+		return (NULL);
+	return (array);
+}
+
+void	ft_puthexa(unsigned int nbr, char c)
+{
+	int		n;
+	char	*array;
 
 	n = 0;
-	array = create_array(nbr);
+	array = create_hex_array(nbr);
 	while (nbr > 0)
 	{
 		array[n] = "0123456789abcdef"[nbr % 16];
 		nbr /= 16;
 		n++;
 	}
+	array[n] = 0;
+	n -= 1;
+	if (c == 'X')
+		ft_toupper(array);
 	while (n >= 0)
 	{
 		ft_printchar(array[n]);
 		n--;
 	}
-	free (array); // freed
+	free(array); // freed
 }
 
-
-int ft_printhexa(unsigned int nbr, char c)
+int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {
-	char	*hexa;
+	int len;
 
-	if (c == 'X')
-		ft_toupper(ft_puthexa(nbr));
-	ft_puthexa(nbr);
-	return (get_length(nbr));
+	len = get_length(nbr);
+	if (flags->hash == 1 && c == 'x')
+	{
+		ft_printstr("0x");
+		len += 2;
+	}
+	else if (flags->hash == 1 && c == 'X')
+	{
+		ft_printstr("0X");
+		len += 2;
+	}
+	if (nbr == 0)
+	{
+		ft_printchar('0');
+		return (1);
+	}
+	ft_puthexa(nbr, c);
+	return (len);
 }
