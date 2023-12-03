@@ -37,6 +37,8 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c -fPIE $< -o $@
 
+bonus:$(NAME)
+
 clean:
 	@$(RM) -rf $(OBJ_DIR)
 	@echo "$(MAGENTA)Cleaned object files ✓ $(NC)"

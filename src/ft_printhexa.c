@@ -68,18 +68,18 @@ int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 	int len;
 
 	len = get_length(nbr);
+	if (nbr == 0)
+	{
+		ft_printchar('0');
+		return (1);
+	}
 	if (flags->hash == 1)
 	{
 		if (c == 'x')
 			ft_printstr("0x");
 		else if (c == 'X')
-			ft_printstr("0x");
+			ft_printstr("0X");
 		len += 2;
-	}
-	if (nbr == 0)
-	{
-		ft_printchar('0');
-		return (1);
 	}
 	ft_puthexa(nbr, c);
 	return (len);
