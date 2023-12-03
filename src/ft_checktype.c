@@ -21,7 +21,7 @@ int	ft_checktype(va_list args, const char type, t_flags *flags)
 	else if (type == 'p')
 		return (ft_printptr(va_arg(args, unsigned long long)));
 	else if ((type == 'd') || (type == 'i'))
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int), flags));
 	else if (type == 'x')
 		return (ft_printhexa(va_arg(args, unsigned int), 'x', flags));
 	else if (type == 'X')

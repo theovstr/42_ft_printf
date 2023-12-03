@@ -29,7 +29,7 @@ int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n);
 int		int_len(long nbr);
 char	*malzero(int len);
-int		ft_putnbr(int n);
+int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
 int		get_length(unsigned int nbr);
 char	*create_array(unsigned int nb);
