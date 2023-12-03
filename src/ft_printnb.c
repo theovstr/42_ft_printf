@@ -2,22 +2,16 @@
 
 #include "../include/libftprintf.h"
 
-void	integer_flag_plus(int n)
+
+void	integer_flag(int n, char c)
 {
 	char	*nbr;
 
 	nbr = ft_itoa(n);
-	ft_printchar('+');
-	ft_printstr(nbr);
-	free(nbr);
-}
-
-void	integer_flag_space(int n)
-{
-	char	*nbr;
-
-	nbr = ft_itoa(n);
-	ft_printchar(' ');
+	if (c == ' ')
+		ft_printchar(' ');
+	else if (c == '+')
+		ft_printchar('+');
 	ft_printstr(nbr);
 	free(nbr);
 }
@@ -31,12 +25,12 @@ int	ft_putnbr(int n, t_flags *flag)
 	nbr = ft_itoa(n);
 	if (((flag->plus == 1 && flag->space == 1) || flag->plus == 1) && n >= 0)
 	{
-		integer_flag_plus(n);
+		integer_flag(n, '+');
 		len += 1;
 	}
 	else if (flag->space == 1 && n >= 0)
 	{
-		integer_flag_space(n);
+		integer_flag(n, ' ');
 		len += 1;
 	}
 	else
