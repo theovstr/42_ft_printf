@@ -10,7 +10,10 @@ int	ft_printchar(char c)
 int	ft_printstr(char *str)
 {
 	if (!str)
-		return (write(1, "(null)", 6));
+	{
+		write(1, "(null)", 6);
+		return (0);
+	}
 	else
 		return (write(1, str, ft_strlen(str)));
 }
