@@ -49,7 +49,7 @@ int	ft_putnbr(int n, t_flags *flag)
 	int len;
 	int ret;
 
-	len = int_len(n);
+	len = ft_int_len(n);
 	if ((flag-> minus == 1 || flag->zero == 1) && flag->width > 0) 
 	{
 		ret = ft_putnbr_before_flag(n, flag);
