@@ -1,6 +1,6 @@
 
 
-#include "../include/libftprintf.h"
+#include "../include/ft_printf.h"
 
 int	ft_isflag(const char c)
 {

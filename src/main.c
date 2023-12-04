@@ -1,4 +1,4 @@
-#include "../include/libftprintf.h"
+#include "../include/ft_printf.h"
 
 int main(void)
 {
@@ -29,7 +29,7 @@ int main(void)
 
 	ft_printf("-----------end of test\n");
 	ft_printf("\n");
-	ft_printf("TEST FOR %%p \n");
+	ft_printf("TEST FOR %%xX \n");
 
 	ft_printf("'fffffffc' : '%x'\n", -4);
 	ft_printf("0X2d : '% ###X'\n", 45);

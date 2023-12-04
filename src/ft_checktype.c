@@ -1,6 +1,6 @@
 
 
-#include "../include/libftprintf.h"
+#include "../include/ft_printf.h"
 
 t_flags	*create_struct(void)
 {

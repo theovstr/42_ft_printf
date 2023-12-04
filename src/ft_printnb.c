@@ -1,6 +1,6 @@
 
 
-#include "../include/libftprintf.h"
+#include "../include/ft_printf.h"
 
 
 void	integer_flag(int n, char c)
