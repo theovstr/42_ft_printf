@@ -21,6 +21,7 @@ typedef struct s_flags
 }		t_flags;
 
 int		ft_printf(const char *str, ...);
+int		ft_putchar(char c, t_flags *flags);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
 int		ft_printstr_flag(char *str, t_flags *flags);
@@ -46,8 +47,9 @@ void	ft_putunsigned(unsigned int nbr);
 int		ft_printunsigned(unsigned int nbr);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
-void		integer_flag(int n, char c);
+void	integer_flag(int n, char c);
 int		ft_justify_right(int length_word, int width);
 int		ft_justify_left(int length_word, int width, char c, char sign);
+int		ft_printstr_precision(char *str, int len, t_flags *flags);
 
 #endif
