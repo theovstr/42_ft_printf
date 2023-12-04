@@ -44,7 +44,7 @@ void	ft_putunsigned(unsigned int nbr);
 int		ft_printunsigned(unsigned int nbr);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
-int		integer_flag(int n, char c, int len);
+void		integer_flag(int n, char c);
 int		ft_justify_right(int length_word, int width);
 int		ft_justify_left(int length_word, int width, char c, char sign);
 
