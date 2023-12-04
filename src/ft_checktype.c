@@ -2,6 +2,9 @@
 
 #include "../include/ft_printf.h"
 
+/**
+ * Creating the structure that control the flag on / off
+*/
 t_flags	*create_struct(void)
 {
 	t_flags	*elem;
@@ -11,6 +14,11 @@ t_flags	*create_struct(void)
 		return (NULL);
 	return (elem);
 }
+
+/**
+ * Checking the type of value that we are getting,
+ * Will serve later to handle different conversion >
+*/
 
 int	ft_checktype(va_list args, const char type, t_flags *flags)
 {

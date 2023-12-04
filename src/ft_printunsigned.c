@@ -1,18 +1,6 @@
 
 #include "../include/ft_printf.h"
 
-int	int_len_u(unsigned int nbr)
-{
-	int	i;
-
-	i = 0;
-	while (nbr > 0)
-	{
-		nbr /= 10;
-		i++;
-	}
-	return (i);
-}
 
 void	ft_putunsigned(unsigned int nbr)
 {
@@ -20,7 +8,7 @@ void	ft_putunsigned(unsigned int nbr)
 	int		i;
 
 	i = 0;
-	array = create_array(nbr);
+	array = create_array(nbr, 'd');
 	if (array == NULL)
 	{
 	};
@@ -42,11 +30,14 @@ void	ft_putunsigned(unsigned int nbr)
 
 int	ft_printunsigned(unsigned int nbr)
 {
+	int	count;
+
+	count = ft_int_len(nbr);
 	if (nbr == 0)
 	{
 		ft_printchar('0');
 		return (1);
 	}
 	ft_putunsigned(nbr);
-	return (int_len_u(nbr));
+	return (count);
 }

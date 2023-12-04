@@ -21,7 +21,7 @@ int	ft_putnbr(int n, t_flags *flag)
 	char	*nbr;
 	int		len;
 
-	len = int_len(n);
+	len = ft_int_len(n);
 	nbr = ft_itoa(n);
 	if (((flag->plus == 1 && flag->space == 1) || flag->plus == 1) && n >= 0)
 	{

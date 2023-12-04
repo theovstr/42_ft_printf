@@ -2,7 +2,13 @@
 
 #include "../include/ft_printf.h"
 
-char	*malzero(int len)
+/**
+ * File that handle the converstion of %d and %i
+ * take an int as input
+ * Return a string of char, use to print the number
+*/
+
+char	*malloc_zero(int len)
 {
 	char	*res;
 
@@ -13,26 +19,6 @@ char	*malzero(int len)
 	return (res);
 }
 
-int	int_len(long nbr)
-{
-	int	count;
-
-	count = 0;
-	if (nbr < 0)
-	{
-		count++;
-		nbr = -nbr;
-	}
-	if (nbr == 0)
-		count++;
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		count++;
-	}
-	return (count);
-}
-
 char	*ft_itoa(int n)
 {
 	int		len;
@@ -41,8 +27,8 @@ char	*ft_itoa(int n)
 	long	nbr;
 
 	nbr = n;
-	len = int_len(nbr);
-	result = malzero(len);
+	len = ft_int_len(nbr);
+	result = malloc_zero(len);
 	if (!result)
 		return (NULL);
 	if (nbr < 0)

@@ -1,7 +1,5 @@
 #include "../include/ft_printf.h"
 
-
-
 int	iterate(const char *str, t_flags *flags, va_list args)
 {
 	int	i;
