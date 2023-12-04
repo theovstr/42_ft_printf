@@ -60,7 +60,7 @@ void	ft_puthexa(unsigned int nbr, char c)
 		ft_printchar(array[n]);
 		n--;
 	}
-	free(array); // freed
+	free(array);
 }
 
 int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
