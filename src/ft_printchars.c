@@ -1,6 +1,6 @@
 
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_printchar(char c)
 {

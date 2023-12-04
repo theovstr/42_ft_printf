@@ -1,5 +1,5 @@
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	int_len_u(unsigned int nbr)
 {

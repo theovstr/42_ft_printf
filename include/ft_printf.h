@@ -1,5 +1,4 @@
 
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -29,6 +28,7 @@ int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n);
 int		int_len(long nbr);
 char	*malzero(int len);
+int		ft_putnbr_before_flag(int n, t_flags *flag);
 int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
 int		get_length(unsigned int nbr);
@@ -44,6 +44,8 @@ void	ft_putunsigned(unsigned int nbr);
 int		ft_printunsigned(unsigned int nbr);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
-void	integer_flag(int n, char c);
+int		integer_flag(int n, char c, int len);
+int		ft_justify_right(int length_word, int width);
+int		ft_justify_left(int length_word, int width, char c, char sign);
 
 #endif

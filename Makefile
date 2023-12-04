@@ -18,7 +18,7 @@ NC=\033[0m # No Color
 
 # Sources
 
-SRC_FILES	= ft_printf ft_printchars ft_printptr minilibft ft_checktype ft_flags ft_itoa ft_printhexa ft_printnb ft_printunsigned
+SRC_FILES	= ft_printf ft_printchars ft_printptr minilibft ft_checktype ft_flags ft_itoa ft_printhexa ft_printnb ft_printunsigned ft_justify
 
 
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

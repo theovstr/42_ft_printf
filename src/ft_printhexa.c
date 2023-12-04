@@ -1,5 +1,5 @@
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	get_length(unsigned int nbr)
 {
