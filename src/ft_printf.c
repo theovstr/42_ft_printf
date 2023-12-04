@@ -1,4 +1,4 @@
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	iterate(const char *str, t_flags *flags, va_list args)
 {
@@ -17,7 +17,7 @@ int	iterate(const char *str, t_flags *flags, va_list args)
 			i += format + 1;
 		}
 		else
-			len += ft_printchar(str[i]);
+			len += write(1, &str[i], 1);
 	}
 	return (len);
 }

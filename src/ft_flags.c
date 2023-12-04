@@ -1,6 +1,6 @@
 
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 /**
  * Simple function that control if we are on a flag or not
@@ -59,6 +59,24 @@ int ft_getwidth(t_flags *flags, const char *str)
 	return (i);
 }
 
+int ft_getprecision(t_flags *flags, const char *str)
+{
+	int i;
+
+	i = 0;
+	if (str[i] == '.')
+	{
+		flags->precision = 1;
+		i++;
+		while (ft_isdigit(str[i]))
+		{
+			flags->precisize = flags->precisize * 10 + (str[i] - '0');
+			i++;
+		}
+	}
+	return (i);
+}
+
 /**
  * Using the functions together to create the structure
  * Completing it with the necessecary value
@@ -72,6 +90,7 @@ int ft_re_setflags(t_flags *flags, const char *str)
 	ft_bzero(flags, sizeof(t_flags));
 	len = ft_setflags(flags, str);
 	len += ft_getwidth(flags, &str[len]);
+	len += ft_getprecision(flags , &str[len]);
 	//printf("width: %d\n", flags->width);
 	return(len);
 }

@@ -1,6 +1,6 @@
 
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 /**
  * File that handle the converstion of %d and %i

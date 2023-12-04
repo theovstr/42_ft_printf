@@ -1,6 +1,6 @@
 
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 /**
  * Creating the structure that control the flag on / off
@@ -23,9 +23,9 @@ t_flags	*create_struct(void)
 int	ft_checktype(va_list args, const char type, t_flags *flags)
 {
 	if (type == 'c')
-		return (ft_printchar(va_arg(args, int)));
+		return (ft_putchar(va_arg(args, int), flags));
 	else if (type == 's')
-		return (ft_printstr(va_arg(args, char *)));
+		return (ft_printstr_flag(va_arg(args, char *), flags));
 	else if (type == 'p')
 		return (ft_printptr(va_arg(args, unsigned long long), flags));
 	else if ((type == 'd') || (type == 'i'))
