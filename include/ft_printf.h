@@ -15,6 +15,7 @@ typedef struct s_flags
 	int	minus;
 	int	width;
 	int	precision;
+	int precisize;
 	int	hash;
 	int	space;
 	int	plus;
@@ -23,6 +24,7 @@ typedef struct s_flags
 int		ft_printf(const char *str, ...);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
+int		ft_printstr_flag(char *str, t_flags *flags);
 int		ft_printptr(unsigned long long ptr, t_flags *flag);
 int		ft_strlen(char *str);
 int		ft_checktype(va_list args, const char type, t_flags *flags);
