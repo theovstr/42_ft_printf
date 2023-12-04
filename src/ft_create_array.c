@@ -1,4 +1,4 @@
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 /**
  * Create an array of type 'char' 

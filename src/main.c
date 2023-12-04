@@ -53,6 +53,6 @@ int main(void)
 	ft_printf("' 0000000056'// '% .10d'\n", 56);
 	ft_printf("'  +2147483647'// '%  #+13.5i'\n", 2147483647);
 	ft_printf("'       +00214'// '%  #+13.5i'\n", 214);
-	char *null_str = NULL;
-	ft_printf("'%.7s'", null_str);
+	// char *null_str = NULL;
+	// ft_printf("'%.7s'", null_str);
 }

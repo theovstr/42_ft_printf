@@ -29,7 +29,7 @@ int		ft_printptr(unsigned long long ptr, t_flags *flag);
 int		ft_strlen(char *str);
 int		ft_checktype(va_list args, const char type, t_flags *flags);
 char	*ft_itoa(int n, t_flags *flag);
-char	*malloc_zero(int len, t_flags *flag);
+char	*malloc_zero(int len, int precisize);
 int		ft_putnbr_before_flag(int n, t_flags *flag);
 int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
@@ -51,8 +51,8 @@ int		ft_justify_left(int length_word, int width, char c, char sign);
 int		ft_printstr_precision(char *str, int len, t_flags *flags);
 void	integer_flag(char sign);
 int		ft_int_len(long nbr);
-int		ft_lenght_of_precisize(t_flags *flag);
-char	*add_zero(int n, t_flags *flag);
+void	add_zero(char *str, int precisize, int len);
 char	*ft_itoa(int n, t_flags *flag);
+int		integer_handler(int n, t_flags *flags);
 
 #endif

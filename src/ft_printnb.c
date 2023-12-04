@@ -42,28 +42,29 @@ int	ft_putnbr_before_flag(int n, t_flags *flag)
 
 int	ft_putnbr(int n, t_flags *flag)
 {
-	int len;
 	int ret;
 
-	len = ft_int_len(n) + ft_lenght_of_precisize(flag);
-	if ((flag-> minus == 1 || flag->zero == 1) && flag->width > 0) 
-	{
-		ret = ft_putnbr_before_flag(n, flag);
-		if (flag->minus == 1 && flag->minus > 0)
-			len += ft_justify_left(len, flag->width, ' ', ' ');
-		else
-		{
-			if (flag->plus == 1)
-				len += ft_justify_left(len, flag->width, '0', '+');
-			else
-				len += ft_justify_left(len, flag->width, '0', ' ');
-		}		
-	}
-	else
-	{
-		len += ft_justify_right(len, flag->width);
-		ret = ft_putnbr_before_flag(n, flag);
-	}
-	return (len + ret);
+	ret = integer_handler(n , flag);
+	return (ret);
+	// if ((flag-> minus == 1 || flag->zero == 1) && flag->width > 0) 
+	// {
+	// 	ret = ft_putnbr_before_flag(n, flag);
+	// 	if (flag->minus == 1 && flag->width > 0)
+	// 		len += ft_justify_left(len, flag->width, ' ', ' ');
+	// 	// Probleme isolee pour les 0 em +
+	// 	// else
+	// 	// {
+	// 	// 	if (flag->plus == 1)
+	// 	// 		//len += ft_justify_left(len, flag->width, '0', '+');
+	// 	// 	//else
+	// 	// 		//len += ft_justify_left(len, flag->width, '0', ' ');
+	// 	// }		
+	// }
+	// else
+	// {
+	// 	len += ft_justify_right(len, flag->width);
+	// 	ret = ft_putnbr_before_flag(n, flag);
+	// }
+	// return (len + ret);
 }
 

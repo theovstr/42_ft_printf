@@ -8,50 +8,31 @@
  * Return a string of char, use to print the number
 */
 
-int	ft_lenght_of_precisize(t_flags *flag)
+
+char	*malloc_zero(int len, int precisize)
 {
-	int	i;
+	char	*ret;
 
-	i = 0;
-	while (flag->precisize > 0)
-	{
-		flag->precisize /= 10;
-		i++;
-	}
-	return (i);
-}
-
-char	*malloc_zero(int len, t_flags *flag)
-{
-	char	*res;
-	int	precisize;
-
-	precisize = ft_lenght_of_precisize(flag);
-	res = malloc(sizeof(char) * (len + 1) + precisize);
-	if (!res)
+	ret = malloc(sizeof(char) * (len + 1) + (precisize - len));
+	if (!ret)
 		return (NULL);
-	res[0] = '0';
-	return (res);
+	ret[0] = '0';
+	return (ret);
 }
 
-char	*add_zero(int n, t_flags *flag)
+void	add_zero(char *str, int precisize, int len)
 {
-	int		precisize;
-	char	*str;
-	int		len;
 	int		i;
+	int		precis;
 
 	i = 0;
-	len = ft_int_len(n);
-	str = malloc_zero(len, flag);
-	precisize = ft_lenght_of_precisize(flag);
-	while (precisize > 0)
+	precis = precisize - len;
+	while (precis >= 0)
 	{
 		str[i] = '0';
-		precisize /= 10;
+		precis--;
 		i++;
 	}
-	return (str);
 }
 
 char	*ft_itoa(int n, t_flags *flag)
@@ -61,15 +42,18 @@ char	*ft_itoa(int n, t_flags *flag)
 	char	*result;
 	long	nbr;
 
+	i = 0;
 	nbr = n;
-	len = ft_int_len(nbr);
-	result = add_zero(n, flag);
+	len = ft_int_len(n);
+	result = malloc_zero(len, flag->precisize);
 	if (!result)
 		return (NULL);
+	add_zero(result, flag->precisize, len);
 	if (nbr < 0)
 		nbr = -nbr;
-	i = len - 1;
-	while (nbr != 0)
+	result[len + (flag->precisize - len)] = 0;
+	i = len + (flag->precisize - len) - 1;
+	while (nbr > 0)
 	{
 		result[i] = ((nbr % 10) + 48);
 		nbr = nbr / 10;
@@ -77,6 +61,5 @@ char	*ft_itoa(int n, t_flags *flag)
 	}
 	if (n < 0)
 		result[0] = '-';
-	result[len] = 0;
 	return (result);
 }
