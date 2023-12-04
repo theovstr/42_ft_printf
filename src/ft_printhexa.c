@@ -1,5 +1,5 @@
 
-#include "../include/libftprintf.h"
+#include "../include/ft_printf.h"
 
 int	get_length(unsigned int nbr)
 {
@@ -68,20 +68,18 @@ int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 	int len;
 
 	len = get_length(nbr);
-	if (flags->hash == 1 && c == 'x')
-	{
-		ft_printstr("0x");
-		len += 2;
-	}
-	else if (flags->hash == 1 && c == 'X')
-	{
-		ft_printstr("0X");
-		len += 2;
-	}
 	if (nbr == 0)
 	{
 		ft_printchar('0');
 		return (1);
+	}
+	if (flags->hash == 1)
+	{
+		if (c == 'x')
+			ft_printstr("0x");
+		else if (c == 'X')
+			ft_printstr("0X");
+		len += 2;
 	}
 	ft_puthexa(nbr, c);
 	return (len);
