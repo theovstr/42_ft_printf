@@ -42,6 +42,11 @@ int main(void)
 
 	// ft_printf("-----------end of test\n");
 
-	char *null_str = NULL;
-	ft_printf("'%.7s'", null_str);
+	char *b;
+
+	char lol = 'c';
+
+	b = &lol;
+	
+	ft_printf("%30p", b);
 }

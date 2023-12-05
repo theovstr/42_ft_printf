@@ -32,11 +32,8 @@ size_t	puthex(unsigned long long ptr)
 	return (lenhexptr(ptr));
 }
 
-
-int	ft_printptr(unsigned long long ptr, t_flags *flag)
+int	ft_printptr_r(unsigned long long ptr, t_flags *flag)
 {
-	if (!ptr)
-		return (write(1, "(nil)", 5));
 	if ((flag->plus == 1 && flag->space == 1) || flag->plus == 1)
 	{
 		ft_printchar('+');
@@ -49,4 +46,30 @@ int	ft_printptr(unsigned long long ptr, t_flags *flag)
 	}
 	else
 		return (write(1, "0x", 2) + puthex(ptr));
+}
+
+int	ft_printptr(unsigned long long ptr, t_flags *flag)
+{
+	size_t i = 2;
+	int ret = 0;
+
+	if (!ptr)
+	{
+		if (flag->width > 5)
+		{
+			while (i++ < (size_t)flag->width - 3)
+				ret += write(1, " ", 1);
+		}
+		return (ret + write(1, "(nil)", 5));
+	}
+	if (flag->minus == 1)
+		ret = ft_printptr_r(ptr, flag);
+	if (flag->width > (int)lenhexptr(ptr))
+	{
+		while (i++ < flag->width - lenhexptr(ptr))
+			ret += write(1, " ", 1);
+	}
+	if (flag->minus == 0)
+		ret += ft_printptr_r(ptr, flag);
+	return (ret);
 }
