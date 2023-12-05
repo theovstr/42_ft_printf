@@ -35,7 +35,7 @@ int	ft_checktype(va_list args, const char type, t_flags *flags)
 	else if (type == 'X')
 		return (ft_printhexa(va_arg(args, unsigned int), 'X', flags));
 	else if (type == 'u')
-		return (ft_printunsigned(va_arg(args, unsigned int)));
+		return (ft_printunsigned(va_arg(args, unsigned int), flags));
 	else if (type == '%')
 		return (ft_printchar('%'));
 	return (1);

@@ -4,9 +4,9 @@
 int main(void)
 {
 
-	ft_printf("TEST FOR %%d and %%i \n");
+	// ft_printf("TEST FOR %%d and %%i \n");
 
-	ft_printf("-4555 : '% +i'\n", -4555);
+	// ft_printf("-4555 : '% +i'\n", -4555);
 	// ft_printf("+4555 : '% +d'\n", 4555);
 	// ft_printf("+4555 : '%+d'\n", 4555);
 	// ft_printf("-2147483647 : '%+d'\n", -2147483647);
@@ -42,7 +42,7 @@ int main(void)
 
 	// ft_printf("-----------end of test\n");
 
-	//precision and jusitfy for %d and %i 
+	// //precision and jusitfy for %d and %i 
 	// ft_printf("test for precision and width together ---\n\n");
 	// ft_printf("00001     '// %-10.5d'\n", 1);
     // ft_printf("'+00001'// '%+.5i'\n", 1);
@@ -53,6 +53,8 @@ int main(void)
 	// ft_printf("' 0000000056'// '% .10d'\n", 56);
 	// ft_printf("'  +2147483647'// '%  #+13.5i'\n", 2147483647);
 	// ft_printf("'      +00214'// '%  #+13.5i'\n", 214);
-	char *null_str = NULL;
-	ft_printf("'%.7s'", null_str);
+	// char *null_str = NULL;
+	// ft_printf("'%.7s'\n", null_str);
+
+	ft_printf("%.11i\n", -2147483647);
 }

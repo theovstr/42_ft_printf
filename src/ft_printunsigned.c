@@ -2,13 +2,13 @@
 #include "ft_printf.h"
 
 
-void	ft_putunsigned(unsigned int nbr)
+void	ft_putunsigned(unsigned int nbr, t_flags *flags)
 {
 	char	*array;
 	int		i;
 
 	i = 0;
-	array = create_array(nbr, 'd');
+	array = create_array(nbr, 'd', flags);
 	if (array == NULL)
 	{
 	};
@@ -28,7 +28,7 @@ void	ft_putunsigned(unsigned int nbr)
 	free(array); // freed
 }
 
-int	ft_printunsigned(unsigned int nbr)
+int	ft_printunsigned(unsigned int nbr, t_flags *flags)
 {
 	int	count;
 
@@ -38,6 +38,6 @@ int	ft_printunsigned(unsigned int nbr)
 		ft_printchar('0');
 		return (1);
 	}
-	ft_putunsigned(nbr);
+	ft_putunsigned(nbr, flags);
 	return (count);
 }

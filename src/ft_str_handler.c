@@ -28,13 +28,13 @@ int	ft_printnullstr(t_flags *flags, const char *str)
 	int	i;
 
 	i = 0;
-	if (!*str && flags->width >= 1)
+	if (str != NULL && !*str && flags->width >= 1)
 	{
 		while (flags->width-- > 0)
 			i += write(1, " ", 1);
 		return (i);
 	}
-	else if (!*str)
+	else if (str != NULL && !*str)
 		return (0);
 	if (flags->precision == 1 && flags->precisize < 6)
 		return (0);

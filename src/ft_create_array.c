@@ -6,7 +6,7 @@
  * will specify if it's hexa or integer
 */
 
-char	*create_array(unsigned int nb, char c)
+char	*create_array(unsigned int nb, char c, t_flags *flags)
 {
 	char			*array;
 	unsigned int	n;
@@ -15,6 +15,8 @@ char	*create_array(unsigned int nb, char c)
 		n = ft_get_hexadecimal_length(nb);
 	else
 		n = ft_get_integer_length(nb);
+	if (flags->precisize > 0 && n < (unsigned)flags->precisize)
+		n += flags->precisize - n;
 	array = malloc((n + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
