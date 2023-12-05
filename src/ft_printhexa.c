@@ -2,13 +2,16 @@
 #include "ft_printf.h"
 
 
-void	ft_puthexa(unsigned int nbr, char c)
+char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 {
 	int		n;
 	char	*array;
 
-	n = 0;
-	array = create_array(nbr, 'x');
+	n = ft_get_hexadecimal_length(nbr) + (flags->precisize - ft_get_hexadecimal_length(nbr));
+	array = create_array(nbr, 'x', flags);
+	if (!array)
+		return (NULL);
+	add_zero(array, flags->precisize, ft_get_hexadecimal_length(nbr));
 	while (nbr > 0)
 	{
 		array[n] = "0123456789abcdef"[nbr % 16];
@@ -24,7 +27,7 @@ void	ft_puthexa(unsigned int nbr, char c)
 		ft_printchar(array[n]);
 		n--;
 	}
-	free(array);
+	return(array);
 }
 
 int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
@@ -45,6 +48,6 @@ int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 			ft_printstr("0X");
 		len += 2;
 	}
-	ft_puthexa(nbr, c);
+	free(ft_puthexa(nbr, c, flags));
 	return (len);
 }

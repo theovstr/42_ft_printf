@@ -12,7 +12,7 @@
 char	*malloc_zero(int len, int precisize)
 {
 	char	*ret;
-
+	// condition a ajouter
 	ret = malloc(sizeof(char) * (len + 1) + (precisize - len));
 	if (!ret)
 		return (NULL);

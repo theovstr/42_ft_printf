@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/theveste/Cursus/printff/src",
-      "program": "/home/theveste/Cursus/printff/src/build/Debug/outDebug",
+      "cwd": "/home/ael-mank/projects/ft_printfgit/src",
+      "program": "/home/ael-mank/projects/ft_printfgit/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

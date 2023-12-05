@@ -34,8 +34,8 @@ int		ft_putnbr_before_flag(int n, t_flags *flag);
 int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
 int		ft_get_hexadecimal_length(unsigned int nbr);
-char	*create_array(unsigned int nb, char c);
-void	ft_puthexa(unsigned int nbr, char c);
+char	*create_array(unsigned int nb, char c, t_flags *flags);
+char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags);
 int		ft_printhexa(unsigned int nbr, char c, t_flags *flags);
 t_flags	*create_struct(void);
 int		ft_setflags(t_flags *flags, const char *str);
@@ -43,7 +43,7 @@ int		ft_setflags(t_flags *flags, const char *str);
 void	ft_toupper(char *str);
 int		ft_get_integer_length(int nbr);
 char	*ft_putunsigned_in_array(unsigned int nbr);
-int		ft_printunsigned(unsigned int nbr);
+int		ft_printunsigned(unsigned int nbr, t_flags *flags);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
 int		ft_justify_right(int length_word, int width);
@@ -54,5 +54,6 @@ int		ft_int_len(long nbr);
 void	add_zero(char *str, int precisize, int len);
 char	*ft_itoa(int n, t_flags *flag);
 int		integer_handler(int n, t_flags *flags);
+int		ft_printnullstr(t_flags *flags, const char *str);
 
 #endif
