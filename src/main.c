@@ -42,11 +42,6 @@ int main(void)
 
 	// ft_printf("-----------end of test\n");
 
-	char *b;
-
-	char lol = 'c';
-
-	b = &lol;
-	
-	ft_printf("%30p", b);
+	printf("%i\n", printf("'%2s'", ""));
+	printf("%i\n", ft_printf("'%2s'", ""));
 }

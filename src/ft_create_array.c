@@ -15,7 +15,7 @@ char	*create_array(unsigned int nb, char c)
 		n = ft_get_hexadecimal_length(nb);
 	else
 		n = ft_get_integer_length(nb);
-	array = malloc((n + 1) * sizeof(char));
+	array = malloc((n + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
 	return (array);

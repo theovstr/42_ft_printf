@@ -46,11 +46,19 @@ int	ft_printstr(char *str)
 }
 
 
-int	ft_printnullstr(t_flags *flags)
+int	ft_printnullstr(t_flags *flags, const char *str)
 {
 	int	i;
 
 	i = 0;
+	if (!*str && flags->width >= 1)
+	{
+		while (flags->width-- > 0)
+			i += write(1, " ", 1);
+		return (i);
+	}
+	else if (!*str)
+		return (0);
 	if (flags->precision == 1 && flags->precisize < 6)
 		return (0);
 	while (i++ < flags->width - 6)
@@ -65,10 +73,8 @@ int	ft_printstr_flag(char *str, t_flags *flags)
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (ft_printnullstr(flags));
-	if (!*str)
-		return (0);
+	if (!str || !*str)
+		return (ft_printnullstr(flags, str));
 	len = ft_strlen(str);
 	ret = len;
 	if (flags->precision == 1 && flags->precisize < len)
