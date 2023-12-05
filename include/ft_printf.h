@@ -28,7 +28,7 @@ int		ft_printstr_flag(char *str, t_flags *flags);
 int		ft_printptr(unsigned long long ptr, t_flags *flag);
 int		ft_strlen(char *str);
 int		ft_checktype(va_list args, const char type, t_flags *flags);
-char	*malloc_zero(int len, int precisize, int n);
+char	*malloc_zero(int len, int precisize);
 int		ft_putnbr_before_flag(int n, t_flags *flag);
 int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
