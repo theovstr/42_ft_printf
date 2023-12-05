@@ -14,5 +14,6 @@ int	integer_handler(int n, t_flags *flags)
 	str = ft_itoa(n, flags, len);
 
 	ret += justify_putflags_integer(str, flags, n);
-	return (ret + len);
+	free (str);
+	return (ret);
 }
