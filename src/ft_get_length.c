@@ -40,10 +40,7 @@ int	ft_int_len(long nbr)
 
 	count = 0;
 	if (nbr < 0)
-	{
-		count++;
 		nbr = -nbr;
-	}
 	if (nbr == 0)
 		count++;
 	while (nbr != 0)

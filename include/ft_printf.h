@@ -47,6 +47,7 @@ int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
 int		ft_printstr_precision(char *str, int len, t_flags *flags);
 
+int 	set_v(int n, t_flags *flags);
 int		ft_integer_flag(char sign);
 int		ft_int_len(long nbr);
 void	add_zero(char *str, int precisize, int len);
@@ -54,5 +55,6 @@ char	*ft_itoa(int n, t_flags *flag, int len);
 int		integer_handler(int n, t_flags *flags);
 int 	justify_putflags_integer(char *str, t_flags *flags, int n);
 void 	print_width_flags(char *str, t_flags *flags, int n, int len);
-
+int		justify_putflags_zero(char *str, t_flags *flags, int n);
+int		justify_putflags_precisize(t_flags *flags, int n);
 #endif
