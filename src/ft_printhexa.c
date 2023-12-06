@@ -8,7 +8,7 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 	char	*array;
 
 	n = ft_get_hexadecimal_length(nbr) + (flags->precisize - ft_get_hexadecimal_length(nbr));
-	array = create_array(nbr, 'x', flags);
+	array = create_array(ft_get_hexadecimal_length(nbr), flags);
 	if (!array)
 		return (NULL);
 	add_zero(array, flags->precisize, ft_get_hexadecimal_length(nbr));

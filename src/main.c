@@ -56,5 +56,5 @@ int main(void)
 	// char *null_str = NULL;
 	// ft_printf("'%.7s'\n", null_str);
 
-	ft_printf("%.11i\n", -2147483647);
+	ft_printf("%.11u\n", -2483647);
 }

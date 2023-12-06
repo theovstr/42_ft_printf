@@ -2,30 +2,31 @@
 #include "ft_printf.h"
 
 
-void	ft_putunsigned(unsigned int nbr, t_flags *flags)
+char	*ft_utoa(unsigned int nbr, int count, t_flags *flags)
 {
 	char	*array;
 	int		i;
 
-	i = 0;
-	array = create_array(nbr, 'd', flags);
-	if (array == NULL)
-	{
-	};
+	i = count;
+	array = create_array(ft_int_len(nbr), flags);
+	if (!array)
+		return(0);
 	while (nbr > 0)
 	{
 		array[i] = "0123456789"[nbr % 10];
 		nbr /= 10;
-		i++;
-	}
-	array[i] = 0;
-	i -= 1;
-	while (i >= 0)
-	{
-		ft_printchar(array[i]);
 		i--;
 	}
-	free(array); // freed
+	if (nbr < 0)
+		array[0] = '-';
+	array[i] = 0;
+	i = 0;
+	while (i <= count)
+	{
+		ft_printchar(array[i]);
+		i++;
+	}
+	return (array);
 }
 
 int	ft_printunsigned(unsigned int nbr, t_flags *flags)
@@ -38,6 +39,6 @@ int	ft_printunsigned(unsigned int nbr, t_flags *flags)
 		ft_printchar('0');
 		return (1);
 	}
-	ft_putunsigned(nbr, flags);
+	free(ft_utoa(nbr, count, flags));
 	return (count);
 }
