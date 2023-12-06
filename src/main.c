@@ -79,4 +79,5 @@ int main(void)
 	//ft_printf("'%05.2i'\n", 0);
 	// ft_printf("'%04.2i'\n", 1);
 	// ft_printf("'%- 4.2i'\n", 8);
+	//ft_printf("%- 5.2d", 0);
 }
