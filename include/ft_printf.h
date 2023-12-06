@@ -63,5 +63,10 @@ int		ft_hexaflag_right_zero(char *str, t_flags *flags, char c, unsigned int nb);
 int		ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb);
 int		print_flags_hexa(char *str, t_flags *flag, char c, int len);
 int		ft_hexaflag_zero(char *str, t_flags *flags);
+int		justify_putflags_zero_ptr(char *str, t_flags *flags);
+int		set_v_ptr(t_flags *flags);
+void	print_width_flags_ptr(char *str, t_flags *flags, int len);
+int 	justify_putflags_ptr(char *str, t_flags *flags);
+int		justify_putflags_precisize_ptr(t_flags *flags);
 
 #endif

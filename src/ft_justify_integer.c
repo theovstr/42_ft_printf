@@ -60,6 +60,8 @@ int	justify_putflags_zero(char *str, t_flags *flags, int n)
 		ft_integer_flag('+');
 	else if (n >= 0 && flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
+	if (n == 0)
+		i++;
     while (i++ < (flags->width - (len + v))) //ok
 		ret += write(1, "0", 1);
 	if (str[0] == 0)

@@ -69,5 +69,14 @@ int main(void)
 	// ft_printf("'%01.3d'\n", 0);
 	//ft_printf("'%01.3d'\n", 0);
 	//ft_printf("%.5x", 0);
-
+	// char a = 'd';
+	// ft_printf("'%-30.20p'\n", &a);
+	// ft_printf("'%030p'\n", &a);
+	// ft_printf("'%+.20p'\n", &a);
+	// ft_printf("'% .5p'\n", &a);
+	//ft_printf(" %3.2d ", 0);
+	//ft_printf("'%-1p' '%-2p' ", 0, 0);
+	ft_printf("'%05.2i'\n", 0);
+	// ft_printf("'%04.2i'\n", 1);
+	// ft_printf("'%- 4.2i'\n", 8);
 }

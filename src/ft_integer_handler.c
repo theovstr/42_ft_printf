@@ -30,6 +30,7 @@ int	integer_handler(int n, t_flags *flags)
 	len = ft_int_len(n);
 	//printf("len = %d\n", len);
 	str = ft_itoa(n, flags, len);
+	//printf("''%s''\n", str);
 	if (flags->precision == 1 && n != 0)
 		ret += justify_putflags_integer(str, flags, n);
 	else if (flags->precision == 0 && flags->zero == 1)

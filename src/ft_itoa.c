@@ -73,6 +73,7 @@ char	*ft_itoa(int n, t_flags *flag, int len)
 		nbr = nbr / 10;
 		len--;
 	}
+	// printf("''%s''\n", result);
 	return (result);
 }
 /**

@@ -2,9 +2,9 @@
 
 #include "../include/ft_printf.h"
 
-size_t	lenhexptr(unsigned long long ptr)
+int	lenhexptr(unsigned long long ptr)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (ptr > 0)
@@ -15,61 +15,88 @@ size_t	lenhexptr(unsigned long long ptr)
 	return (i);
 }
 
-size_t	puthex(unsigned long long ptr)
+char	*ft_ptoa(unsigned long long nbr, t_flags *flags)
 {
-	if (ptr >= 16)
+	char	*array;
+	int		i;
+	int		len;
+
+	len = lenhexptr(nbr);
+	//printf("len = %d", len);
+	if (flags->precisize > len)
+		len = flags->precisize;
+	array = (char *)malloc(sizeof(char) * len + 1);
+	if (!array)
+		return (0);
+	array[len] = '\0';
+	i = len - 1;
+	while (nbr > 0)
 	{
-		puthex(ptr / 16);
-		puthex(ptr % 16);
+		array[i] = "0123456789abcdef"[nbr % 16];
+		nbr /= 16;
+		i--;
 	}
-	else
+	while (i >= 0) // Fill the rest with '0' if precision is specified
 	{
-		if (ptr <= 9)
-			ft_printchar(ptr + '0');
-		else
-			ft_printchar(ptr - 10 + 'a');
+		array[i] = '0';
+		i--;
 	}
-	return (lenhexptr(ptr));
+	return (array);
 }
 
-int	ft_printptr_r(unsigned long long ptr, t_flags *flag)
+int	justify_putflags_precisize_ptr(t_flags *flags)
 {
-	if ((flag->plus == 1 && flag->space == 1) || flag->plus == 1)
-	{
-		ft_printchar('+');
-		return (write(1, "0x", 2) + puthex(ptr));
-	}
-	else if (flag->space == 1)
-	{
-		ft_printchar(' ');
-		return (write(1, "0x", 2) + puthex(ptr));
-	}
-	else
-		return (write(1, "0x", 2) + puthex(ptr));
+	int ret;
+	int	i;
+
+	i = 0;
+    ret = 0;
+	if (flags->plus == 1)
+		ft_integer_flag('+');
+	else if (flags->plus == 0 && flags->space == 1)
+		ft_integer_flag(' ');
+    while (i++ < flags->width) //ok
+		ret += write(1, " ", 1);
+	write(1, 0, 0);
+    return(ret);
 }
 
-int	ft_printptr(unsigned long long ptr, t_flags *flag)
+int justifynills(t_flags *flags)
 {
-	size_t i = 2;
-	int ret = 0;
+	int i;
+	int ret;
 
+	i = 0;
+	ret = 0;
+	if (flags->minus == 1)
+		write(1, "(nil)", 5);
+	while (i++ < (flags->width - 5)) //ok
+		ret += write(1, " ", 1);
+	if (flags->minus == 0)
+		write(1, "(nil)", 5);
+	return (ret + 5);
+}
+
+int	ft_printptr(unsigned long long ptr, t_flags *flags)
+{
+	int		ret;
+	char	*str;
+
+	str = ft_ptoa(ptr, flags);
+	ret = 0;
+	//printf("len = %d\n", len);
 	if (!ptr)
-	{
-		if (flag->width > 5)
-		{
-			while (i++ < (size_t)flag->width - 3)
-				ret += write(1, " ", 1);
-		}
-		return (ret + write(1, "(nil)", 5));
-	}
-	if (flag->minus == 1)
-		ret = ft_printptr_r(ptr, flag);
-	if (flag->width > (int)lenhexptr(ptr))
-	{
-		while (i++ < flag->width - lenhexptr(ptr))
-			ret += write(1, " ", 1);
-	}
-	if (flag->minus == 0)
-		ret += ft_printptr_r(ptr, flag);
+		ret += justifynills(flags);
+	else if (flags->precision == 1 && ptr != 0)
+		ret += justify_putflags_ptr(str, flags);
+	else if (flags->precision == 0 && flags->zero == 1)
+		ret += justify_putflags_zero_ptr(str, flags);
+	else if (flags->precision == 0)
+		ret +=  justify_putflags_ptr(str, flags);
+	else if (ptr == 0 && flags->precision == 1 && flags->precisize == 0)
+		ret += justify_putflags_precisize_ptr(flags);
+	else if (ptr == 0 && flags->precisize > 0)
+		ret += justify_putflags_zero_ptr(str, flags);
+	free(str);
 	return (ret);
 }
