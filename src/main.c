@@ -80,4 +80,39 @@ int main(void)
 	// ft_printf("'%04.2i'\n", 1);
 	// ft_printf("'%- 4.2i'\n", 8);
 	//ft_printf("%- 5.2d", 0);
+	// ft_printf("'%+.1i'\n", 0);
+	// printf("'%+.1i'\n", 0);
+
+
+	// ft_printf("'%+ 5.5i'\n", 0);
+	// printf("'%+ 5.5i'\n", 0);
+	// ft_printf("'%+16.0i'\n", 0);
+	// printf("'%+16.0i'\n", 0);
+	// printf("'%+-5.0i'\n", 15);
+	// ft_printf("'%+-5.0i'\n", 15);
+	// ft_printf("'%+16.1i'\n", 2147483647);
+	// printf("'%+16.1i'\n", 2147483647);
+	// int value;
+
+	// value = ft_printf("%012d\n", -2147483648);
+	// printf("my : %d\n", value);
+	// value = printf("%012d\n", -2147483648);
+	// printf("their : %d\n", value);
+	// printf("second test Uint max\n");
+	// value = ft_printf("%012d\n", 4294967295);
+	// printf("my : %d\n", value);
+	// value = printf("%012d\n", 4294967295);
+	// printf("their : %d\n", value);
+	// int ok;
+
+	// ok = ft_printf("'i%4pi'\n", NULL);
+	// printf("my : %d\n", ok);
+	// ok = printf("'i%4pi'\n", NULL);
+	// printf("my : %d\n", ok);
+	// printf("other test\n");
+	// ft_printf(" %02i \n", 0);
+	// printf(" %02i \n", 0);
+
+	// ft_printf("'i%8pi'\n", NULL);
+	// printf("'i%8pi'\n", NULL);
 }
