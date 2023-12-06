@@ -46,7 +46,7 @@ int		ft_printunsigned(unsigned int nbr, t_flags *flags);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
 int		ft_printstr_precision(char *str, int len, t_flags *flags);
-
+void	add_zero_hexa(int len, int i, char *array);
 int 	set_v(int n, t_flags *flags);
 int		ft_integer_flag(char sign);
 int		ft_int_len(long nbr);
@@ -57,4 +57,7 @@ int 	justify_putflags_integer(char *str, t_flags *flags, int n);
 void 	print_width_flags(char *str, t_flags *flags, int n, int len);
 int		justify_putflags_zero(char *str, t_flags *flags, int n);
 int		justify_putflags_precisize(t_flags *flags, int n);
+void	reversing_array(char *array, int len);
+
+
 #endif

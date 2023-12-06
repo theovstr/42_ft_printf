@@ -32,9 +32,9 @@ int main(void)
 	// ft_printf("\n");
 	// ft_printf("TEST FOR %%xX \n");
 
-	// ft_printf("'fffffffc' : '%x'\n", -4);
-	// ft_printf("0X2D : '% ###X'\n", 45);
-	// ft_printf("0 : '%x'\n", 0);
+	ft_printf("'fffffffc' : '%x'\n", -4);
+	ft_printf("'%.9x'\n", -3147483649);
+	ft_printf("0 : '%.5x'\n", 2);
 	// ft_printf("FFFFF79D : '%X'\n", -2147);
 	// ft_printf("'0xc' : '%##x'\n", 12);
 	// ft_printf("2DX : '%XX'\n", 45);
@@ -66,5 +66,7 @@ int main(void)
 	// ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i\n", 127, 42, 1023, 0);
 	// ft_printf("'%.3d'\n", 0);
 	// ft_printf("'%01.3d'\n", 0);
-	ft_printf("'%01.3d'\n", 0);
+	//ft_printf("'%01.3d'\n", 0);
+
+
 }

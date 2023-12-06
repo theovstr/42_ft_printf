@@ -1,53 +1,69 @@
 
 #include "ft_printf.h"
 
+void	add_zero_hexa(int len, int i, char *array)
+{
+	while (i < len)
+	{
+		array[i] = '0';
+		i++;
+	}
+}
+
+
+void	reversing_array(char *array, int len)
+{
+	int start;
+	int end;
+	char temp;
+
+	start = 0;
+	end = len - 1;
+	while (start < len / 2)
+	{
+		temp = array[start];
+		array[start] = array[end];
+		array[end] = temp;
+		start++;
+		end--;
+	}
+}
 
 char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 {
-	int		n;
+	int		len;
 	char	*array;
+	int		i;
 
-	n = ft_get_hexadecimal_length(nbr) + (flags->precisize - ft_get_hexadecimal_length(nbr));
-	array = create_array(nbr, 'x', flags);
-	if (!array)
-		return (NULL);
-	add_zero(array, flags->precisize, ft_get_hexadecimal_length(nbr));
+	i= 0;
+	len = ft_get_hexadecimal_length(nbr);
+	if (flags->precisize > len)
+		len += (flags->precisize - len);
+	array = malloc(sizeof(char) * (len + 1));
+	array[len] = '\0'; 
 	while (nbr > 0)
 	{
-		array[n] = "0123456789abcdef"[nbr % 16];
+		array[i] = "0123456789abcdef"[nbr % 16];
 		nbr /= 16;
-		n++;
+		i++;
 	}
-	array[n] = 0;
-	n -= 1;
+	if (flags->precisize > 0)
+		add_zero_hexa(len, i, array);
 	if (c == 'X')
 		ft_toupper(array);
-	while (n >= 0)
-	{
-		ft_printchar(array[n]);
-		n--;
-	}
-	return(array);
+	reversing_array(array, len);
+	return (array);
 }
+/**
+ * Call the create array function and obtain a complete (with or without precision)
+ * an array of a hexedecimal number
+*/
 
-int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
+int		ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {
-	int len;
+	char *array;
 
-	len = ft_get_hexadecimal_length(nbr);
-	if (nbr == 0)
-	{
-		ft_printchar('0');
-		return (1);
-	}
-	if (flags->hash == 1)
-	{
-		if (c == 'x')
-			ft_printstr("0x");
-		else if (c == 'X')
-			ft_printstr("0X");
-		len += 2;
-	}
-	free(ft_puthexa(nbr, c, flags));
-	return (len);
+	array = ft_puthexa(nbr, c, flags);
+	free(array);
+	return (0);
 }
