@@ -66,5 +66,5 @@ int main(void)
 	// ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i\n", 127, 42, 1023, 0);
 	// ft_printf("'%.3d'\n", 0);
 	// ft_printf("'%01.3d'\n", 0);
-	ft_printf("'%01.3d'\n", 0);
+	//ft_printf("'%u'", 0);
 }
