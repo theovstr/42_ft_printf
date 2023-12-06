@@ -42,19 +42,29 @@ int main(void)
 
 	// ft_printf("-----------end of test\n");
 
-	// //precision and jusitfy for %d and %i 
+	// // //precision and jusitfy for %d and %i 
 	// ft_printf("test for precision and width together ---\n\n");
 	// ft_printf("00001     '// %-10.5d'\n", 1);
     // ft_printf("'+00001'// '%+.5i'\n", 1);
     // ft_printf("'     0000000056'// '%015.10d'\n", 56);
    	// ft_printf("'  785'// '%5.2d'\n", 785);
    	// ft_printf("''// '%.0d'\n", 0);
-    // ft_printf("'  -2147483648'// '%  #13.5i'\n", -2147483648);
+    // ft_printf("'  -2147483648'// '%  #13.11i'\n", -2147483648);
 	// ft_printf("' 0000000056'// '% .10d'\n", 56);
-	// ft_printf("'  +2147483647'// '%  #+13.5i'\n", 2147483647);
+	// ft_printf("'  +2147483647'// '%  #+13.11i'\n", 2147483647);
 	// ft_printf("'      +00214'// '%  #+13.5i'\n", 214);
-	// char *null_str = NULL;
-	// ft_printf("'%.7s'\n", null_str);
+	// // char *null_str = NULL;
+	// // ft_printf("'%.7s'\n", null_str);
 
-	ft_printf("%.11u\n", -2483647);
+
+	// ft_printf("'  +2147483647'// '%013.11i'\n", 2147483647);
+	// ft_printf("'      +00214'// '%-013i'\n", 214);
+	// ft_printf("%.11i\n", -2147483647);
+
+	// ft_printf("'%-+15.i'\n", 0);
+	// ft_printf("'%-1.8i'\n", 0);
+	// ft_printf("Bla %.2ii bla %.5isbla bla %.ix bla %.i\n", 127, 42, 1023, 0);
+	// ft_printf("'%.3d'\n", 0);
+	// ft_printf("'%01.3d'\n", 0);
+	ft_printf("'%01.3d'\n", 0);
 }
