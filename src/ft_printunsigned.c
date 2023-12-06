@@ -1,43 +1,112 @@
 
 #include "ft_printf.h"
 
+int ft_getunsignedlen(unsigned int nbr)
+{
+	int i;
 
-void	ft_putunsigned(unsigned int nbr, t_flags *flags)
+	i = 0;
+	if (nbr == 0)
+		i = 1;
+	while (nbr > 0)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_utoa(unsigned int nbr, t_flags *flags)
 {
 	char	*array;
 	int		i;
+	int		len;
 
-	i = 0;
-	array = create_array(nbr, 'd', flags);
-	if (array == NULL)
-	{
-	};
+	len = ft_getunsignedlen(nbr);
+	//printf("len = %d", len);
+	if (flags->precisize > len)
+		len = flags->precisize;
+	array = (char *)malloc(sizeof(char) * len + 1);
+	if (!array)
+		return (0);
+	array[len] = '\0';
+	i = len - 1;
 	while (nbr > 0)
 	{
 		array[i] = "0123456789"[nbr % 10];
 		nbr /= 10;
-		i++;
-	}
-	array[i] = 0;
-	i -= 1;
-	while (i >= 0)
-	{
-		ft_printchar(array[i]);
 		i--;
 	}
-	free(array); // freed
+	while (i >= 0) // Fill the rest with '0' if precision is specified
+	{
+		array[i] = '0';
+		i--;
+	}
+	return (array);
+}
+
+int		ft_unsignedflags(char *str, t_flags *flags)
+{
+	int ret;
+	int len;
+	int i;
+
+	i = 0;
+	len = ft_strlen(str);
+	ret = 0;
+	if (flags->minus == 1)
+		write(1, str, len);
+	while (i++ < (flags->width - len)) // ok
+	{
+		if (flags->zero == 1 && flags->precision == 1)
+			ret += write(1, " ", 1);
+		else if (flags->zero == 1 && flags->precision == 0 && flags->minus == 0)
+			ret += write(1, "0", 1);
+		else
+			ret += write(1, " ", 1);
+	}
+	if (flags->minus == 0)
+		write(1, str, len);
+	return (ret + len);
+}
+
+int		ft_unsignedflags_zero(char *str, t_flags *flags)
+{
+	int ret;
+	int len;
+	int i;
+
+	i = 0;
+	len = ft_strlen(str);
+	ret = 0;
+	if (flags->minus == 1)
+		write(1, 0, 0);
+	while (i++ <= (flags->width - len)) // ok
+	{
+		if (flags->zero == 1 && flags->precision == 1)
+			ret += write(1, " ", 1);
+		else if (flags->zero == 1 && flags->precision == 0 && flags->minus == 0)
+			ret += write(1, "0", 1);
+		else
+			ret += write(1, " ", 1);
+	}
+	if (flags->minus == 0)
+		write(1, 0, 0);
+	return (ret);
 }
 
 int	ft_printunsigned(unsigned int nbr, t_flags *flags)
 {
-	int	count;
+	int		count;
+	char	*str;
 
-	count = ft_int_len(nbr);
-	if (nbr == 0)
-	{
-		ft_printchar('0');
-		return (1);
-	}
-	ft_putunsigned(nbr, flags);
+	str = ft_utoa(nbr, flags);
+	//printf("str == '%s'", str);
+	//return(0);
+	if (flags->precision == 1 && flags->precisize == 0 && nbr == 0)
+		count = ft_unsignedflags_zero(str, flags);
+	else
+		count = ft_unsignedflags(str, flags);
+	free(str);
 	return (count);
 }

@@ -33,7 +33,7 @@ int		ft_putnbr_before_flag(int n, t_flags *flag);
 int		ft_putnbr(int n, t_flags *flag);
 void	ft_bzero(void *ptr, size_t n);
 int		ft_get_hexadecimal_length(unsigned int nbr);
-char	*create_array(unsigned int nb, char c, t_flags *flags);
+char	*create_array(int len, t_flags *flags);
 char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags);
 int		ft_printhexa(unsigned int nbr, char c, t_flags *flags);
 t_flags	*create_struct(void);

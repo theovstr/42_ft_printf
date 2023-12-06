@@ -6,19 +6,21 @@
  * will specify if it's hexa or integer
 */
 
-char	*create_array(unsigned int nb, char c, t_flags *flags)
+char	*create_array(int len, t_flags *flags)
 {
-	char			*array;
-	unsigned int	n;
+	char	*ret;
+	int		untouched_len;
+	int		precisize = flags->precision;
+
 	
-	if (c == 'x')
-		n = ft_get_hexadecimal_length(nb);
-	else
-		n = ft_get_integer_length(nb);
-	if (flags->precisize > 0 && n < (unsigned)flags->precisize)
-		n += flags->precisize - n;
-	array = malloc((n + 1) * sizeof(char *));
-	if (!array)
+	untouched_len = len;
+	if (precisize > 0 && len < precisize)
+		len += (precisize - len);
+	ret = malloc(sizeof(char) * (len + 1));
+	if (!ret)
 		return (NULL);
-	return (array);
+	if (precisize > 0 && untouched_len < precisize)
+		add_zero(ret, precisize, untouched_len);
+	ret[0] = '0';
+	return (ret);
 }
