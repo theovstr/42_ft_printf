@@ -69,5 +69,5 @@ int main(void)
 	// ft_printf("'%01.3d'\n", 0);
 	//ft_printf("'%01.3d'\n", 0);
 	//ft_printf("%.5x", 0);
-
+	ft_printf("%- 5.2d", 0);
 }

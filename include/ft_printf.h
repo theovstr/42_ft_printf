@@ -54,7 +54,7 @@ void	add_zero(char *str, int precisize, int len);
 char	*ft_itoa(int n, t_flags *flag, int len);
 int		integer_handler(int n, t_flags *flags);
 int 	justify_putflags_integer(char *str, t_flags *flags, int n);
-void 	print_width_flags(char *str, t_flags *flags, int n, int len);
+void	print_width_flags(t_flags *flags, int n);
 int		justify_putflags_zero(char *str, t_flags *flags, int n);
 int		justify_putflags_precisize(t_flags *flags, int n);
 void	reversing_array(char *array, int len);
