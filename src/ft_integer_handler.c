@@ -1,6 +1,5 @@
 #include "ft_printf.h"
 
-
 int	justify_putflags_precisize(t_flags *flags, int n)
 {
 	int ret;

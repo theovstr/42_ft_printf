@@ -8,6 +8,7 @@ int	ft_ptr_flag(char sign)
 		return(ft_printchar('+'));
 	return (0);
 }
+
 void	print_width_flags_ptr(char *str, t_flags *flags, int len)
 {
 	if (flags->plus == 1)
@@ -29,13 +30,6 @@ int set_v_ptr(t_flags *flags)
 		ret += 1;
 	return (ret + 2);
 }
- /**
-  * Cas possible ;
-  * minus = 1 et zero = 1 / precision peut importe - print left justified blank -- sign devant le nombre
-  * minus = 0 et zero = 1 // precision = 1 - print left justified blanck -- sign devant le nombre
-  * zero = 1 // precision = 0 - print 0 before number --sign devant le zero
- */
-
 
 int	justify_putflags_zero_ptr(char *str, t_flags *flags)
 {

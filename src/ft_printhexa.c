@@ -10,7 +10,6 @@ void	add_zero_hexa(int len, int i, char *array)
 	}
 }
 
-
 void	reversing_array(char *array, int len)
 {
 	int start;
@@ -56,10 +55,6 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 	reversing_array(array, len);
 	return (array);
 }
-/**
- * Call the create array function and obtain a complete (with or without precision)
- * an array of a hexedecimal number
-*/
 
 int		ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {

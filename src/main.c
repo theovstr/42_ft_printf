@@ -1,8 +1,8 @@
 
-#include "../include/ft_printf.h"
+// #include "../include/ft_printf.h"
 
-int main(void)
-{
+// int main(void)
+// {
 
 	// ft_printf("TEST FOR %%d and %%i \n");
 
@@ -115,4 +115,4 @@ int main(void)
 
 	// ft_printf("'i%8pi'\n", NULL);
 	// printf("'i%8pi'\n", NULL);
-}
+// }

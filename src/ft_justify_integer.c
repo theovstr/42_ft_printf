@@ -83,7 +83,6 @@ int	justify_putflags_zero(char *str, t_flags *flags, int n) // laaaa
     return(ret + len + v);
 }
 
-
 int justify_putflags_integer(char *str, t_flags *flags, int n)
 {
     int ret;

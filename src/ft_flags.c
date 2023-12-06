@@ -1,11 +1,4 @@
-
-
 #include "ft_printf.h"
-
-/**
- * Simple function that control if we are on a flag or not
- * Will serve for iterating trough the % -- > s string
-*/
 
 int	ft_isflag(const char c)
 {
@@ -14,10 +7,6 @@ int	ft_isflag(const char c)
 	else
 		return (0);
 }
-
-/**
- * Setting in the structure the on / off value of the flags
-*/
 
 int	ft_setflags(t_flags *flags, const char *str)
 {
@@ -40,11 +29,6 @@ int	ft_setflags(t_flags *flags, const char *str)
 	}
 	return (i);
 }
-
-/**
- * Get the width of the width specifier
- * And store it into the struct
-*/
 
 int ft_getwidth(t_flags *flags, const char *str)
 {
@@ -76,12 +60,6 @@ int ft_getprecision(t_flags *flags, const char *str)
 	}
 	return (i);
 }
-
-/**
- * Using the functions together to create the structure
- * Completing it with the necessecary value
- * and returning the lenght of the all % --> format
-*/
 
 int ft_re_setflags(t_flags *flags, const char *str)
 {

@@ -1,13 +1,4 @@
-
-
 #include "ft_printf.h"
-
-/**
- * File that handle the converstion of %d and %i
- * take an int as input
- * Return a string of char, use to print the number
-*/
-
 
 void	add_zero(char *str, int precisize, int len)
 {
@@ -66,6 +57,3 @@ char	*ft_itoa(int n, t_flags *flag, int len)
 	}
 	return (result);
 }
-/**
- * Seems clear, got to verify
-*/

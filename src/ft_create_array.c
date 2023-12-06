@@ -1,11 +1,5 @@
 #include "ft_printf.h"
 
-/**
- * Create an array of type 'char' 
- * It's given an number as unsigned int, and a 'char'
- * will specify if it's hexa or integer
-*/
-
 char	*create_array(int len, t_flags *flags)
 {
 	char	*ret;

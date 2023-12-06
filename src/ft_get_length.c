@@ -1,13 +1,5 @@
 #include "../include/ft_printf.h"
 
-/**
- * File that handle the length counter of 
- * int
- * hexa
- * unsigned
-*/
-
-
 int	ft_get_integer_length(int nbr)
 {
 	int	i;

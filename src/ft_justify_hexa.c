@@ -1,6 +1,5 @@
 #include "ft_printf.h"
 
-
 int		ft_hexaflag_left(char *str, t_flags *flags, char c, unsigned int nb)
 {
 	int ret;
@@ -52,7 +51,6 @@ int		ft_hexaflag_right_zero(char *str, t_flags *flags, char c, unsigned int nb)
 	write(1, str, len);
 	return (len + ret + v);
 }
-
 
 int		ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb)
 {
