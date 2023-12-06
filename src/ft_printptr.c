@@ -36,7 +36,7 @@ char	*ft_ptoa(unsigned long long nbr, t_flags *flags)
 		nbr /= 16;
 		i--;
 	}
-	while (i >= 0) // Fill the rest with '0' if precision is specified
+	while (i >= 0)
 	{
 		array[i] = '0';
 		i--;
@@ -55,7 +55,7 @@ int	justify_putflags_precisize_ptr(t_flags *flags)
 		ft_integer_flag('+');
 	else if (flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
-    while (i++ < flags->width) //ok
+    while (i++ < flags->width)
 		ret += write(1, " ", 1);
 	write(1, 0, 0);
     return(ret);
@@ -70,7 +70,7 @@ int justifynills(t_flags *flags)
 	ret = 0;
 	if (flags->minus == 1)
 		write(1, "(nil)", 5);
-	while (i++ < (flags->width - 5)) //ok
+	while (i++ < (flags->width - 5))
 		ret += write(1, " ", 1);
 	if (flags->minus == 0)
 		write(1, "(nil)", 5);
@@ -84,7 +84,6 @@ int	ft_printptr(unsigned long long ptr, t_flags *flags)
 
 	str = ft_ptoa(ptr, flags);
 	ret = 0;
-	//printf("len = %d\n", len);
 	if (!ptr)
 		ret += justifynills(flags);
 	else if (flags->precision == 1 && ptr != 0)

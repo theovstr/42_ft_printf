@@ -23,7 +23,6 @@ char	*ft_utoa(unsigned int nbr, t_flags *flags)
 	int		len;
 
 	len = ft_getunsignedlen(nbr);
-	//printf("len = %d", len);
 	if (flags->precisize > len)
 		len = flags->precisize;
 	array = (char *)malloc(sizeof(char) * len + 1);
@@ -37,7 +36,7 @@ char	*ft_utoa(unsigned int nbr, t_flags *flags)
 		nbr /= 10;
 		i--;
 	}
-	while (i >= 0) // Fill the rest with '0' if precision is specified
+	while (i >= 0)
 	{
 		array[i] = '0';
 		i--;
@@ -101,8 +100,6 @@ int	ft_printunsigned(unsigned int nbr, t_flags *flags)
 	char	*str;
 
 	str = ft_utoa(nbr, flags);
-	//printf("str == '%s'", str);
-	//return(0);
 	if (flags->precision == 1 && flags->precisize == 0 && nbr == 0)
 		count = ft_unsignedflags_zero(str, flags);
 	else

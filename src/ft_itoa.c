@@ -33,21 +33,12 @@ char	*malloc_zero(int len, int precisize)
 	untouched_len = len;
 	if (precisize > 0 && len < precisize)
 		len += (precisize - len);
-	//printf("precicize in malloc = %d\n", precisize); // ok
-	//printf("len = %d\n", len); //ok
 	ret = malloc(sizeof(char) * (len + 1));
 	if (!ret)
 		return (NULL);
-	//printf("ad zero precisize = %d, len = %d\n", precisize, untouched_len);
 	if (precisize > 0 && untouched_len < precisize)
 		add_zero(ret, precisize, untouched_len);
 	ret[0] = '0';
-	// int i = 0;
-	// while (ret[i] != '\0')
-	// {
-	// 	printf("valeur %i = %c \n", i, ret[i]);  //seems ok OK
-	// 	i++;
-	// }
 	return (ret);
 }
 
@@ -73,7 +64,6 @@ char	*ft_itoa(int n, t_flags *flag, int len)
 		nbr = nbr / 10;
 		len--;
 	}
-	// printf("''%s''\n", result);
 	return (result);
 }
 /**

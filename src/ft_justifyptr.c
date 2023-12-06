@@ -8,7 +8,6 @@ int	ft_ptr_flag(char sign)
 		return(ft_printchar('+'));
 	return (0);
 }
-
 void	print_width_flags_ptr(char *str, t_flags *flags, int len)
 {
 	if (flags->plus == 1)
@@ -73,7 +72,6 @@ int justify_putflags_ptr(char *str, t_flags *flags)
 	len = ft_strlen(str);
     ret = 0;
 	v = set_v_ptr(flags);
-	//printf("ICIICIICIICI");
     if (flags->minus == 1)
 		print_width_flags_ptr(str, flags, len);
     while (i++ < (flags->width - (len + v))) //ok
@@ -85,7 +83,6 @@ int justify_putflags_ptr(char *str, t_flags *flags)
 		else
 			ret += write(1, " ", 1);
 	}
-	// printf("A\n");
     if (flags->minus == 0)
 		print_width_flags_ptr(str, flags, len);
     return(ret + len + v);
