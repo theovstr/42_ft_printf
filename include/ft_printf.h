@@ -58,6 +58,10 @@ void 	print_width_flags(char *str, t_flags *flags, int n, int len);
 int		justify_putflags_zero(char *str, t_flags *flags, int n);
 int		justify_putflags_precisize(t_flags *flags, int n);
 void	reversing_array(char *array, int len);
-
+int		ft_hexaflag_left(char *str, t_flags *flags, char c, unsigned int nb);
+int		ft_hexaflag_right_zero(char *str, t_flags *flags, char c, unsigned int nb);
+int		ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb);
+int		print_flags_hexa(char *str, t_flags *flag, char c, int len);
+int		ft_hexaflag_zero(char *str, t_flags *flags);
 
 #endif

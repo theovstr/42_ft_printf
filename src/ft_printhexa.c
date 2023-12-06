@@ -35,12 +35,14 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 	char	*array;
 	int		i;
 
-	i= 0;
+	i = 0;
 	len = ft_get_hexadecimal_length(nbr);
 	if (flags->precisize > len)
 		len += (flags->precisize - len);
 	array = malloc(sizeof(char) * (len + 1));
 	array[len] = '\0'; 
+	if (nbr == 0)
+		array[len - 1] = '0';
 	while (nbr > 0)
 	{
 		array[i] = "0123456789abcdef"[nbr % 16];
@@ -62,8 +64,21 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 int		ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {
 	char *array;
+	int ret;
 
+	ret = 0;
 	array = ft_puthexa(nbr, c, flags);
+	if (flags->precision == 1 && nbr == 0 && flags->precisize == 0)
+		ret = ft_hexaflag_zero(array, flags);
+	else if (flags->minus == 1)
+		ret = ft_hexaflag_left(array, flags, c, nbr);
+	else if (flags->zero == 1 && flags->precision == 0)
+		ret = ft_hexaflag_right_zero(array, flags, c, nbr);
+	else if (flags->zero == 1 && flags->precision == 1)
+		ret = ft_hexaflag_right(array, flags, c, nbr);
+	else
+		ret = ft_hexaflag_right(array, flags, c, nbr);
+	//printf("%s", array);
 	free(array);
-	return (0);
+	return (ret);
 }

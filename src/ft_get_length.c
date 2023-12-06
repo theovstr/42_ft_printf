@@ -26,6 +26,8 @@ int	ft_get_hexadecimal_length(unsigned int nbr)
 	unsigned int	i;
 
 	i = 0;
+	if (nbr == 0)
+		i = 1;
 	while (nbr > 0)
 	{
 		nbr /= 16;
