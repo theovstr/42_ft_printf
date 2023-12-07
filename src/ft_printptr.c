@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:59 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:59:02 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:04:00 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	*ft_ptoa(unsigned long long nbr, t_flags *flags)
 	int		len;
 
 	len = lenhexptr(nbr);
-	// printf("len = %d", len);
 	if (flags->precisize > len)
 		len = flags->precisize;
 	array = (char *)malloc(sizeof(char) * len + 1);

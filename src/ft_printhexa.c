@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:45 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:47 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:03:34 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 		ret = ft_hexaflag_right(array, flags, c, nbr);
 	else
 		ret = ft_hexaflag_right(array, flags, c, nbr);
-	// printf("%s", array);
 	free(array);
 	return (ret);
 }

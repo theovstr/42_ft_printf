@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:57:58 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:57:59 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:02:41 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	add_zero(char *str, int precisize, int len)
 
 	i = 0;
 	precis = precisize - len;
-	// printf("precis = %d\n", precis);
 	while (precis > 0)
 	{
 		str[i] = '0';

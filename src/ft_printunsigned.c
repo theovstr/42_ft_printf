@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:59:07 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:59:09 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:04:08 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_unsignedflags(char *str, t_flags *flags)
 	ret = 0;
 	if (flags->minus == 1)
 		write(1, str, len);
-	while (i++ < (flags->width - len)) // ok
+	while (i++ < (flags->width - len))
 	{
 		if (flags->zero == 1 && flags->precision == 1)
 			ret += write(1, " ", 1);
@@ -91,7 +91,7 @@ int	ft_unsignedflags_zero(char *str, t_flags *flags)
 	ret = 0;
 	if (flags->minus == 1)
 		write(1, 0, 0);
-	while (i++ <= (flags->width - len)) // ok
+	while (i++ <= (flags->width - len))
 	{
 		if (flags->zero == 1 && flags->precision == 1)
 			ret += write(1, " ", 1);

@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:11 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:12 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:03:15 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	justify_putflags_zero2(char *str, t_flags *flags)
 	ret = 0;
 	if (flags->minus == 1)
 		add_zero_flag(flags, str);
-	while (i++ < (flags->width - (len + v))) // ok
+	while (i++ < (flags->width - (len + v)))
 	{
 		if (flags->zero == 1 && flags->precision == 0 && flags->minus == 0)
 			ret += write(1, "0", 1);
@@ -69,7 +69,7 @@ int	justify_putflags_zero2(char *str, t_flags *flags)
 	return (ret + len + v);
 }
 
-int	justify_putflags_zero(char *str, t_flags *flags, int n) // laaaa
+int	justify_putflags_zero(char *str, t_flags *flags, int n)
 {
 	int ret;
 	int len;
@@ -86,7 +86,7 @@ int	justify_putflags_zero(char *str, t_flags *flags, int n) // laaaa
 		ft_integer_flag('+');
 	else if (n >= 0 && flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
-	while (i++ < (flags->width - (len + v))) // ok
+	while (i++ < (flags->width - (len + v)))
 		ret += write(1, "0", 1);
 	if (str[0] == 0)
 		len++;
@@ -107,7 +107,7 @@ int	justify_putflags_integer(char *str, t_flags *flags, int n)
 	v = set_v(n, flags);
 	if (flags->minus == 1)
 		print_width_flags(str, flags, n, len);
-	while (i++ < (flags->width - (len + v))) // ok
+	while (i++ < (flags->width - (len + v)))
 	{
 		if (flags->zero == 1 && flags->precision == 1)
 			ret += write(1, " ", 1);

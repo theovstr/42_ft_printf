@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:05 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:06 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:03:04 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_hexaflag_left(char *str, t_flags *flags, char c, unsigned int nb)
 		v = 2;
 	}
 	write(1, str, len);
-	while (i++ < (flags->width - len - v)) // ok
+	while (i++ < (flags->width - len - v))
 		ret += write(1, " ", 1);
 	return (ret + len + v);
 }
@@ -51,7 +51,6 @@ int	ft_hexaflag_right_zero(char *str, t_flags *flags, char c, unsigned int nb)
 	if (flags->hash == 1 && nb != 0)
 		v = 2;
 	while (i++ < (flags->width - len - v))
-		// print only zero in front of the string /
 		ret += write(1, "0", 1);
 	if (flags->hash == 1 && nb != 0)
 	{
@@ -79,7 +78,6 @@ int	ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb)
 	if (flags->hash == 1 && nb != 0)
 		v = 2;
 	while (i++ < (flags->width - len - v))
-		// print only zero in front of the string /
 		ret += write(1, " ", 1);
 	if (flags->hash == 1 && nb != 0)
 	{
@@ -95,15 +93,14 @@ int	ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb)
 
 int	ft_hexaflag_zero(char *str, t_flags *flags)
 {
-	int ret;
-	int len;
-	int i;
+	int	ret;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = ft_strlen(str);
 	ret = 0;
 	while (i++ <= (flags->width - len))
-		// print only zero in front of the string /
 		ret += write(1, " ", 1);
 	write(1, 0, 0);
 	return (ret);

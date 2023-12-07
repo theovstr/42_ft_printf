@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:39:30 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:39:31 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:02:24 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,5 @@ int	ft_re_setflags(t_flags *flags, const char *str)
 	len = ft_setflags(flags, str);
 	len += ft_getwidth(flags, &str[len]);
 	len += ft_getprecision(flags, &str[len]);
-	// printf("width: %d\n", flags->width);
 	return (len);
 }

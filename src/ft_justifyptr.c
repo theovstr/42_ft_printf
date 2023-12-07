@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:24 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:25 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:03:24 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	justify_putflags_zero_ptr(char *str, t_flags *flags)
 	else if (flags->plus == 0 && flags->space == 1)
 		ft_ptr_flag(' ');
 	write(1, "0x", 2);
-	while (i++ < (flags->width - (len + v))) // ok
+	while (i++ < (flags->width - (len + v)))
 		ret += write(1, "0", 1);
 	if (str[0] == 0)
 		len++;
@@ -80,7 +80,7 @@ int	justify_putflags_ptr(char *str, t_flags *flags)
 	v = set_v_ptr(flags);
 	if (flags->minus == 1)
 		print_width_flags_ptr(str, flags, len);
-	while (i++ < (flags->width - (len + v))) // ok
+	while (i++ < (flags->width - (len + v)))
 	{
 		if (flags->zero == 1 && flags->precision == 1)
 			ret += write(1, " ", 1);

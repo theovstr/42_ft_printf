@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:57:50 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:57:52 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:03:51 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	justify_putflags_precisize(t_flags *flags, int n)
 		ft_integer_flag('+');
 	else if (n >= 0 && flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
-	while (i++ < flags->width) // ok
+	while (i++ < flags->width)
 		ret += write(1, " ", 1);
 	write(1, 0, 0);
 	return (ret);
@@ -39,9 +39,7 @@ int	integer_handler(int n, t_flags *flags)
 
 	ret = 0;
 	len = ft_int_len(n);
-	// printf("len = %d\n", len);
 	str = ft_itoa(n, flags, len);
-	// printf("''%s''\n", str);
 	if (n == 0)
 		ret += justify_putflags_zero2(str, flags);
 	else if (flags->precision == 1 && n != 0)
@@ -50,10 +48,13 @@ int	integer_handler(int n, t_flags *flags)
 		ret += justify_putflags_zero(str, flags, n);
 	else if (flags->precision == 0)
 		ret += justify_putflags_integer(str, flags, n);
-	else if (n == 0 && flags->precision == 1 && flags->precisize == 0)
-		ret += justify_putflags_precisize(flags, n);
-	else if (n == 0 && flags->precisize > 0)
-		ret += justify_putflags_zero(str, flags, n);
 	free(str);
 	return (ret);
 }
+
+/**
+ * 	else if (n == 0 && flags->precision == 1 && flags->precisize == 0)
+		ret += justify_putflags_precisize(flags, n);
+	else if (n == 0 && flags->precisize > 0)
+		ret += justify_putflags_zero(str, flags, n);
+*/
