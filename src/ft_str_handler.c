@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:59:14 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 10:53:24 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:29:55 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	ft_printstr_flag(char *str, t_flags *flags)
 		len = flags->precisize;
 		ret = len;
 	}
+	//printf("%d : \n",flags->ending_it);
 	if (flags->minus == 1)
 		write(1, str, len);
 	while (i++ < flags->width - len)

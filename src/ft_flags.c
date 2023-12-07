@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:39:30 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 10:51:41 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:37:45 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ int	ft_getwidth(t_flags *flags, const char *str, va_list args)
 	{
 		flags->width = va_arg(args, int);
 		if (flags->width < 0)
+		{
 			flags->width = -flags->width;
+			flags->minus = 1;
+			flags->zero = 0;
+		}
 		return(1);
 	}
 	while (ft_isdigit(str[i]))
@@ -75,7 +79,7 @@ int	ft_getprecision(t_flags *flags, const char *str, va_list args)
 		{
 			flags->precisize = va_arg(args, int);
 			if (flags->precisize < 0)
-				flags->precisize = -flags->precisize;
+				flags->precision = 0;
 			return(2);
 		}
 		while (ft_isdigit(str[i]))
