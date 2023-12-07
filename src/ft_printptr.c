@@ -6,11 +6,11 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:59 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 02:04:00 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:07:46 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	lenhexptr(unsigned long long ptr)
 {

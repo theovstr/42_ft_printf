@@ -6,11 +6,11 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:59:19 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 02:04:12 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:07:56 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_strlen(char *str)
 {

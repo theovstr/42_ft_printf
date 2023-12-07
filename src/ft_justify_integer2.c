@@ -6,11 +6,11 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:17 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:18 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:07:10 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 int	ft_integer_flag(char sign)
 {

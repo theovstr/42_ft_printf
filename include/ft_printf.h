@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 02:10:24 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 02:10:26 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -14,7 +25,7 @@ typedef struct s_flags
 	int	minus;
 	int	width;
 	int	precision;
-	int precisize;
+	int	precisize;
 	int	hash;
 	int	space;
 	int	plus;
@@ -41,34 +52,35 @@ int		ft_setflags(t_flags *flags, const char *str);
 int		ft_setflags(t_flags *flags, const char *str);
 void	ft_toupper(char *str);
 int		ft_get_integer_length(int nbr);
-char	*ft_putunsigned_in_array(unsigned int nbr);
 int		ft_printunsigned(unsigned int nbr, t_flags *flags);
 int		ft_re_setflags(t_flags *flags, const char *str);
 int		ft_isdigit(int character);
-int		ft_printstr_precision(char *str, int len, t_flags *flags);
 void	add_zero_hexa(int len, int i, char *array);
-int 	set_v(int n, t_flags *flags);
+int		set_v(int n, t_flags *flags);
 int		ft_integer_flag(char sign);
 int		ft_int_len(long nbr);
 void	add_zero(char *str, int precisize, int len);
 char	*ft_itoa(int n, t_flags *flag, int len);
 int		integer_handler(int n, t_flags *flags);
-int 	justify_putflags_integer(char *str, t_flags *flags, int n);
+int		justify_putflags_integer(char *str, t_flags *flags, int n);
 void	print_width_flags(char *str, t_flags *flags, int n, int len);
 int		justify_putflags_zero(char *str, t_flags *flags, int n);
 int		justify_putflags_precisize(t_flags *flags, int n);
 void	reversing_array(char *array, int len);
 int		ft_hexaflag_left(char *str, t_flags *flags, char c, unsigned int nb);
-int		ft_hexaflag_right_zero(char *str, t_flags *flags, char c, unsigned int nb);
+int		ft_hexaflag_right_zero(char *str, t_flags *flags, char c,
+			unsigned int nb);
 int		ft_hexaflag_right(char *str, t_flags *flags, char c, unsigned int nb);
-int		print_flags_hexa(char *str, t_flags *flag, char c, int len);
 int		ft_hexaflag_zero(char *str, t_flags *flags);
 int		justify_putflags_zero_ptr(char *str, t_flags *flags);
 int		set_v_ptr(t_flags *flags);
 void	print_width_flags_ptr(char *str, t_flags *flags, int len);
-int 	justify_putflags_ptr(char *str, t_flags *flags);
+int		justify_putflags_ptr(char *str, t_flags *flags);
 int		justify_putflags_precisize_ptr(t_flags *flags);
-int		width_added(t_flags *flags, int len, int v);
 int		justify_putflags_zero2(char *str, t_flags *flags);
 
 #endif
+//int		print_flags_hexa(char *str, t_flags *flag, char c, int len);
+//int		width_added(t_flags *flags, int len, int v);
+//int		ft_printstr_precision(char *str, int len, t_flags *flags);
+//char	*ft_putunsigned_in_array(unsigned int nbr);

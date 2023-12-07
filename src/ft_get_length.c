@@ -6,11 +6,11 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:39:42 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:39:43 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 02:07:22 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_get_integer_length(int nbr)
 {
