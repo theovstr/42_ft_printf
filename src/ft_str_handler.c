@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_handler.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:59:14 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:59:15 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int		ft_putchar(char c, t_flags *flags)
+int	ft_putchar(char c, t_flags *flags)
 {
 	int	len;
 	int	ret;

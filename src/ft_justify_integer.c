@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_justify_integer.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:58:11 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:58:12 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int add_zero_flag(t_flags *flags, char *str)
+int	add_zero_flag(t_flags *flags, char *str)
 {
-	int len;
+	int	len;
 	int	i;
 
 	i = 0;
@@ -26,12 +38,12 @@ int add_zero_flag(t_flags *flags, char *str)
 	return (i);
 }
 
-int	justify_putflags_zero2(char *str, t_flags *flags) 
+int	justify_putflags_zero2(char *str, t_flags *flags)
 {
-	int ret;
-    int	len;
+	int	ret;
+	int	len;
 	int	i;
-	int v;
+	int	v;
 
 	v = 0;
 	i = 0;
@@ -40,34 +52,33 @@ int	justify_putflags_zero2(char *str, t_flags *flags)
 	if (flags->precision == 1 && flags->precisize == 0)
 		i = -1;
 	len = ft_strlen(str);
-    ret = 0;
+	ret = 0;
 	if (flags->minus == 1)
 		add_zero_flag(flags, str);
-    while (i++ < (flags->width - (len + v))) //ok
+	while (i++ < (flags->width - (len + v))) // ok
 	{
 		if (flags->zero == 1 && flags->precision == 0 && flags->minus == 0)
 			ret += write(1, "0", 1);
 		else
-			ret += write(1, " ", 1); 
-
+			ret += write(1, " ", 1);
 	}
 	if (flags->minus == 0)
 		add_zero_flag(flags, str);
 	if (flags->precision == 1 && flags->precisize == 0)
 		v--;
-    return(ret + len + v);
+	return (ret + len + v);
 }
 
 int	justify_putflags_zero(char *str, t_flags *flags, int n) // laaaa
 {
 	int ret;
-    int	len;
+	int len;
 	int v;
-	int	i;
+	int i;
 
 	i = 0;
 	len = ft_strlen(str);
-    ret = 0;
+	ret = 0;
 	v = set_v(n, flags);
 	if (n < 0)
 		ft_integer_flag('-');
@@ -75,28 +86,28 @@ int	justify_putflags_zero(char *str, t_flags *flags, int n) // laaaa
 		ft_integer_flag('+');
 	else if (n >= 0 && flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
-    while (i++ < (flags->width - (len + v))) //ok
+	while (i++ < (flags->width - (len + v))) // ok
 		ret += write(1, "0", 1);
 	if (str[0] == 0)
 		len++;
 	write(1, str, len);
-    return(ret + len + v);
+	return (ret + len + v);
 }
 
-int justify_putflags_integer(char *str, t_flags *flags, int n)
+int	justify_putflags_integer(char *str, t_flags *flags, int n)
 {
-    int ret;
-    int	len;
-	int v;
+	int	ret;
+	int	len;
+	int	v;
 	int	i;
 
 	i = 0;
 	len = ft_strlen(str);
-    ret = 0;
+	ret = 0;
 	v = set_v(n, flags);
-    if (flags->minus == 1)
+	if (flags->minus == 1)
 		print_width_flags(str, flags, n, len);
-    while (i++ < (flags->width - (len + v))) //ok
+	while (i++ < (flags->width - (len + v))) // ok
 	{
 		if (flags->zero == 1 && flags->precision == 1)
 			ret += write(1, " ", 1);
@@ -105,7 +116,7 @@ int justify_putflags_integer(char *str, t_flags *flags, int n)
 		else
 			ret += write(1, " ", 1);
 	}
-    if (flags->minus == 0)
+	if (flags->minus == 0)
 		print_width_flags(str, flags, n, len);
-    return(ret + len + v);
+	return (ret + len + v);
 }

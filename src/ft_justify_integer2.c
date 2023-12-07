@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_justify_integer2.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:58:17 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:58:18 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.c"
 
 int	ft_integer_flag(char sign)
 {
 	if (sign == ' ')
-		return(ft_printchar(' '));
+		return (ft_printchar(' '));
 	else if (sign == '+')
-		return(ft_printchar('+'));
+		return (ft_printchar('+'));
 	else if (sign == '-')
-		return(ft_printchar('-'));
+		return (ft_printchar('-'));
 	return (0);
 }
 
@@ -22,9 +34,9 @@ void	print_width_flags(char *str, t_flags *flags, int n, int len)
 	write(1, str, len);
 }
 
-int set_v(int n, t_flags *flags)
+int	set_v(int n, t_flags *flags)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	if (n < 0)

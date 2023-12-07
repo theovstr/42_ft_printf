@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_create_array.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:39:18 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:39:19 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*create_array(int len, t_flags *flags)
 {
 	char	*ret;
 	int		untouched_len;
-	int		precisize = flags->precision;
+	int		precisize;
 
-	
+	precisize = flags->precision;
 	untouched_len = len;
 	if (precisize > 0 && len < precisize)
 		len += (precisize - len);

@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:57:58 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:57:59 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	add_zero(char *str, int precisize, int len)
 {
-	int		i;
-	int		precis;
+	int	i;
+	int	precis;
 
 	i = 0;
 	precis = precisize - len;
-	//printf("precis = %d\n", precis);
+	// printf("precis = %d\n", precis);
 	while (precis > 0)
 	{
 		str[i] = '0';

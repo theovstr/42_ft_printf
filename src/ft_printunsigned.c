@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:59:07 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:59:09 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_getunsignedlen(unsigned int nbr)
+int	ft_getunsignedlen(unsigned int nbr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (nbr == 0)
@@ -44,11 +55,11 @@ char	*ft_utoa(unsigned int nbr, t_flags *flags)
 	return (array);
 }
 
-int		ft_unsignedflags(char *str, t_flags *flags)
+int	ft_unsignedflags(char *str, t_flags *flags)
 {
-	int ret;
-	int len;
-	int i;
+	int	ret;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = ft_strlen(str);
@@ -69,11 +80,11 @@ int		ft_unsignedflags(char *str, t_flags *flags)
 	return (ret + len);
 }
 
-int		ft_unsignedflags_zero(char *str, t_flags *flags)
+int	ft_unsignedflags_zero(char *str, t_flags *flags)
 {
-	int ret;
-	int len;
-	int i;
+	int	ret;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = ft_strlen(str);

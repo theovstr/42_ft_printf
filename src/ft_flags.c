@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_flags.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:39:30 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:39:31 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_isflag(const char c)
@@ -30,9 +42,9 @@ int	ft_setflags(t_flags *flags, const char *str)
 	return (i);
 }
 
-int ft_getwidth(t_flags *flags, const char *str)
+int	ft_getwidth(t_flags *flags, const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_isdigit(str[i]))
@@ -43,9 +55,9 @@ int ft_getwidth(t_flags *flags, const char *str)
 	return (i);
 }
 
-int ft_getprecision(t_flags *flags, const char *str)
+int	ft_getprecision(t_flags *flags, const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '.')
@@ -61,14 +73,14 @@ int ft_getprecision(t_flags *flags, const char *str)
 	return (i);
 }
 
-int ft_re_setflags(t_flags *flags, const char *str)
+int	ft_re_setflags(t_flags *flags, const char *str)
 {
-	int len;
+	int	len;
 
 	ft_bzero(flags, sizeof(t_flags));
 	len = ft_setflags(flags, str);
 	len += ft_getwidth(flags, &str[len]);
-	len += ft_getprecision(flags , &str[len]);
-	//printf("width: %d\n", flags->width);
-	return(len);
+	len += ft_getprecision(flags, &str[len]);
+	// printf("width: %d\n", flags->width);
+	return (len);
 }

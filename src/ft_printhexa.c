@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printhexa.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:58:45 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:58:47 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -12,9 +23,9 @@ void	add_zero_hexa(int len, int i, char *array)
 
 void	reversing_array(char *array, int len)
 {
-	int start;
-	int end;
-	char temp;
+	int		start;
+	int		end;
+	char	temp;
 
 	start = 0;
 	end = len - 1;
@@ -39,7 +50,7 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 	if (flags->precisize > len)
 		len += (flags->precisize - len);
 	array = malloc(sizeof(char) * (len + 1));
-	array[len] = '\0'; 
+	array[len] = '\0';
 	if (nbr == 0)
 		array[len - 1] = '0';
 	while (nbr > 0)
@@ -56,10 +67,10 @@ char	*ft_puthexa(unsigned int nbr, char c, t_flags *flags)
 	return (array);
 }
 
-int		ft_printhexa(unsigned int nbr, char c, t_flags *flags)
+int	ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 {
-	char *array;
-	int ret;
+	char	*array;
+	int		ret;
 
 	ret = 0;
 	array = ft_puthexa(nbr, c, flags);
@@ -73,7 +84,7 @@ int		ft_printhexa(unsigned int nbr, char c, t_flags *flags)
 		ret = ft_hexaflag_right(array, flags, c, nbr);
 	else
 		ret = ft_hexaflag_right(array, flags, c, nbr);
-	//printf("%s", array);
+	// printf("%s", array);
 	free(array);
 	return (ret);
 }

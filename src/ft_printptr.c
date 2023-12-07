@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 01:58:59 by theveste          #+#    #+#             */
+/*   Updated: 2023/12/07 01:59:02 by theveste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
@@ -22,7 +32,7 @@ char	*ft_ptoa(unsigned long long nbr, t_flags *flags)
 	int		len;
 
 	len = lenhexptr(nbr);
-	//printf("len = %d", len);
+	// printf("len = %d", len);
 	if (flags->precisize > len)
 		len = flags->precisize;
 	array = (char *)malloc(sizeof(char) * len + 1);
@@ -46,25 +56,25 @@ char	*ft_ptoa(unsigned long long nbr, t_flags *flags)
 
 int	justify_putflags_precisize_ptr(t_flags *flags)
 {
-	int ret;
+	int	ret;
 	int	i;
 
 	i = 0;
-    ret = 0;
+	ret = 0;
 	if (flags->plus == 1)
 		ft_integer_flag('+');
 	else if (flags->plus == 0 && flags->space == 1)
 		ft_integer_flag(' ');
-    while (i++ < flags->width)
+	while (i++ < flags->width)
 		ret += write(1, " ", 1);
 	write(1, 0, 0);
-    return(ret);
+	return (ret);
 }
 
-int justifynills(t_flags *flags)
+int	justifynills(t_flags *flags)
 {
-	int i;
-	int ret;
+	int	i;
+	int	ret;
 
 	i = 0;
 	ret = 0;
@@ -91,7 +101,7 @@ int	ft_printptr(unsigned long long ptr, t_flags *flags)
 	else if (flags->precision == 0 && flags->zero == 1)
 		ret += justify_putflags_zero_ptr(str, flags);
 	else if (flags->precision == 0)
-		ret +=  justify_putflags_ptr(str, flags);
+		ret += justify_putflags_ptr(str, flags);
 	else if (ptr == 0 && flags->precision == 1 && flags->precisize == 0)
 		ret += justify_putflags_precisize_ptr(flags);
 	else if (ptr == 0 && flags->precisize > 0)
