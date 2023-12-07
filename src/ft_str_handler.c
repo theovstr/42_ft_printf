@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:59:14 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 07:32:17 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:53:24 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,43 @@ int	ft_putchar(char c, t_flags *flags)
 	return (ret);
 }
 
-int	ft_printnullstr(t_flags *flags, const char *str)
+int	ft_printnullstr(t_flags *flags)
 {
 	int	i;
 
 	i = 0;
-	if ((str != NULL && !*str && flags->width >= 1)
-		|| (str == NULL && flags->width > 0))
+	if (flags->precision == 1 && flags->precisize < 6)
 	{
 		while (flags->width-- > 0)
 			i += write(1, " ", 1);
 		return (i);
 	}
-	else if (str != NULL && !*str)
+	else
+	{
+		if (flags->minus == 1)
+			write(1, "(null)", 6);
+		while (i++ < flags->width - 6)
+				write(1, " ", 1);
+		if (flags->minus == 0)
+			write(1, "(null)", 6);
+	}
+	return (6 + i - 1);
+}
+
+int	ft_printnull_char_str(t_flags *flags)
+{
+	int	i;
+
+	i = 0;
+	if (flags->width > 0)
+	{
+		while (flags->width-- > 0)
+			i += write(1, " ", 1);
+		return (i);
+	}
+	else
 		return (0);
-	if (flags->precision == 1 && flags->precisize < 6)
-		return (0);
-	while (i++ < flags->width - 6)
-		write(1, " ", 1);
-	return (write(1, "(null)", 6) + i - 1);
+
 }
 
 int	ft_printstr_flag(char *str, t_flags *flags)
@@ -63,8 +81,10 @@ int	ft_printstr_flag(char *str, t_flags *flags)
 	int	i;
 
 	i = 0;
-	if (!str || !*str)
-		return (ft_printnullstr(flags, str));
+	if (!str)
+		return (ft_printnullstr(flags));
+	if (!*str)
+		return (ft_printnull_char_str(flags));
 	len = ft_strlen(str);
 	ret = len;
 	if (flags->precision == 1 && flags->precisize < len)

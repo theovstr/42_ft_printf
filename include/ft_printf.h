@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 02:10:24 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 02:10:26 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:53:07 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		ft_printf(const char *str, ...);
 int		ft_putchar(char c, t_flags *flags);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
+int		ft_printnullstr(t_flags *flags);
 int		ft_printstr_flag(char *str, t_flags *flags);
 int		ft_printptr(unsigned long long ptr, t_flags *flag);
 int		ft_strlen(char *str);
@@ -53,7 +54,7 @@ int		ft_setflags(t_flags *flags, const char *str);
 void	ft_toupper(char *str);
 int		ft_get_integer_length(int nbr);
 int		ft_printunsigned(unsigned int nbr, t_flags *flags);
-int		ft_re_setflags(t_flags *flags, const char *str);
+int		ft_re_setflags(t_flags *flags, const char *str, va_list args);
 int		ft_isdigit(int character);
 void	add_zero_hexa(int len, int i, char *array);
 int		set_v(int n, t_flags *flags);
@@ -78,6 +79,8 @@ void	print_width_flags_ptr(char *str, t_flags *flags, int len);
 int		justify_putflags_ptr(char *str, t_flags *flags);
 int		justify_putflags_precisize_ptr(t_flags *flags);
 int		justify_putflags_zero2(char *str, t_flags *flags);
+int		ft_getprecision(t_flags *flags, const char *str, va_list args);
+int		ft_printnull_char_str(t_flags *flags);
 
 #endif
 //int		print_flags_hexa(char *str, t_flags *flag, char c, int len);

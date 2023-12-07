@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:39:30 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 02:02:24 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:51:41 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,18 @@ int	ft_setflags(t_flags *flags, const char *str)
 	return (i);
 }
 
-int	ft_getwidth(t_flags *flags, const char *str)
+int	ft_getwidth(t_flags *flags, const char *str, va_list args)
 {
 	int	i;
 
 	i = 0;
+	if (str[i] == '*')
+	{
+		flags->width = va_arg(args, int);
+		if (flags->width < 0)
+			flags->width = -flags->width;
+		return(1);
+	}
 	while (ft_isdigit(str[i]))
 	{
 		flags->width = flags->width * 10 + (str[i] - '0');
@@ -55,7 +62,7 @@ int	ft_getwidth(t_flags *flags, const char *str)
 	return (i);
 }
 
-int	ft_getprecision(t_flags *flags, const char *str)
+int	ft_getprecision(t_flags *flags, const char *str, va_list args)
 {
 	int	i;
 
@@ -64,6 +71,13 @@ int	ft_getprecision(t_flags *flags, const char *str)
 	{
 		flags->precision = 1;
 		i++;
+		if (str[i] == '*')
+		{
+			flags->precisize = va_arg(args, int);
+			if (flags->precisize < 0)
+				flags->precisize = -flags->precisize;
+			return(2);
+		}
 		while (ft_isdigit(str[i]))
 		{
 			flags->precisize = flags->precisize * 10 + (str[i] - '0');
@@ -73,13 +87,12 @@ int	ft_getprecision(t_flags *flags, const char *str)
 	return (i);
 }
 
-int	ft_re_setflags(t_flags *flags, const char *str)
+int	ft_re_setflags(t_flags *flags, const char *str, va_list args)
 {
 	int	len;
-
 	ft_bzero(flags, sizeof(t_flags));
 	len = ft_setflags(flags, str);
-	len += ft_getwidth(flags, &str[len]);
-	len += ft_getprecision(flags, &str[len]);
+	len += ft_getwidth(flags, &str[len], args);
+	len += ft_getprecision(flags, &str[len], args);
 	return (len);
 }

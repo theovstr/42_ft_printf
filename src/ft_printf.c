@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:36 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:58:41 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:51:50 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	iterate(const char *str, t_flags *flags, va_list args)
 	{
 		if (str[i] == '%')
 		{
-			format = ft_re_setflags(flags, &str[i + 1]);
+			format = ft_re_setflags(flags, &str[i + 1], args);
 			len += ft_checktype(args, str[i + 1 + format], flags);
 			i += format + 1;
 		}
