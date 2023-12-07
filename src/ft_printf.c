@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:36 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 11:38:13 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:49:56 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,3 @@ int	ft_printf(const char *str, ...)
 	free(flags);
 	return (len);
 }
-
-// int main(void)
-// {
-// 	int value;
-
-// 	value = ft_printf("%0*i", -7, -54);
-// 	printf("value = %d\n", value);
-// 	value = printf("%0*i", -7, -54);
-// 	printf("value = %d\n", value);
-
-// }
