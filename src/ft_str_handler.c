@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:59:14 by theveste          #+#    #+#             */
-/*   Updated: 2023/12/07 01:59:15 by theveste         ###   ########.fr       */
+/*   Updated: 2023/12/07 07:23:07 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	ft_printnullstr(t_flags *flags, const char *str)
 	int	i;
 
 	i = 0;
-	if (str != NULL && !*str && flags->width >= 1)
+	if ((str != NULL && !*str && flags->width >= 1)
+		|| (str == NULL && flags->width > 0))
 	{
 		while (flags->width-- > 0)
 			i += write(1, " ", 1);
