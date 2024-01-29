@@ -6,7 +6,7 @@
 /*   By: theveste <theveste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 01:58:36 by theveste          #+#    #+#             */
-/*   Updated: 2024/01/29 12:38:52 by theveste         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:39:43 by theveste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	ft_printf(const char *str, ...)
 	va_list	args;
 	int		len;
 	t_flags	*flags;
+
 	if (!str)
 		return (-1);
 	flags = create_struct();
